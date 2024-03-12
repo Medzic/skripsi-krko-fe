@@ -1,0 +1,75 @@
+.Auth-Wrapper {
+    width: 380px;
+    background-color: white;
+    color: black;
+    height: 410px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-left: 35px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.Auth-Title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.Auth-Switch {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.Auth-Switch .nav-link.active {
+    color: black;
+    border-bottom: 3px solid #FFC413;
+}
+
+.Auth-Switch .nav-link {
+    color: black;
+    border-bottom: 1px solid #FFC413;
+}
+.Auth-Switch .nav-link:hover {
+    color: black;
+}
+
+.Auth-Subtitle {
+    top: 90px;
+    position: absolute;
+    width: 100%;
+
+}
+
+.form {
+    position: absolute;
+    height: 100px;
+    align-items: center;
+    height: 60%;
+    top: 120px;
+}
+
+.form-input {
+    margin-bottom: 10px;
+    width: 70%;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #FFC413;
+}
+
+.form-button {
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    padding-top: 5px;
+    height: 40px;
+    background-color: #FFC413;
+}

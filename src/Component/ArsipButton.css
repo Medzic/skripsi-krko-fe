@@ -1,0 +1,18 @@
+.arsip-button{
+    width: 900px;
+    height: 70px;
+    border-radius: 0.50rem;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+}
+.arsip-button:hover{
+    /* width: 900px; */
+    border-radius: 0.50rem;
+    background-color: #FFC413 ;
+    border-bottom: 7px solid rgb(0, 2, 61);
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+

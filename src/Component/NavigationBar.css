@@ -1,0 +1,52 @@
+.Navigation {
+    background-color: rgb(255, 196, 19);
+    height: 60px;
+    color: black;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.Navigation .navbar-nav {
+    margin-left: auto;
+}
+
+.Navigation .nav-link {
+    color: #000;
+    transition: background-color 0.3s ease;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+}
+
+.full-hover:hover {
+    background-color: rgba(0, 2, 61, 0.5);
+    border-bottom: 7px solid rgb(0, 2, 61);
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-clicked {
+    background-color: rgba(0, 2, 61, 0.5);
+    border-bottom: 7px solid rgb(0, 2, 61);
+    color: red;
+  }
+
+.full-hover:hover .nav-text {
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.offcanvas-hover:hover {
+    background-color: rgba(0, 2, 61, 0.5);
+    border-bottom: 7px solid rgb(0, 2, 61);
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    border-radius: 3px;
+}
+.offcanvas-hover:hover .nav-text {
+    color: rgb(255, 255, 255);
+    padding-left: 10px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}

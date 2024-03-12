@@ -1,0 +1,26 @@
+
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 100px;
+    justify-content: center;
+}
+.card-deck-arsip {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+/* .card {
+    margin: 20px;
+    width: 300px; 
+} */
+
+/* .card:hover {
+    background-color: #FFC413;
+    transition: background-color 0.3s ease;
+} */
+
