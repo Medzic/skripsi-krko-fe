@@ -4,21 +4,16 @@ import './NavigationBar.css';
 
 const NavigationBar = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false)
-    const [clicked, setClicked] = useState(true);
 
     const toggleOffcanvas = (expand) => {
         setShowOffcanvas(!showOffcanvas[expand]);
     };
 
 
-    const handleClick = () => {
-        setClicked(true);
-    };
-
     return (
         <>
             {['sm'].map((expand) => (
-                <Navbar key={expand} expand={expand} className='Navigation sticky-top' >
+                <Navbar key={expand} expand={expand} className='Navigation sticky-top' > 
                     <Container fluid >
                         <Navbar.Brand href="#" >Navbar Offcanvas</Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={() => toggleOffcanvas(expand)} />
@@ -37,10 +32,10 @@ const NavigationBar = () => {
                             </Offcanvas.Header>
                             <Offcanvas.Body >
                                 <Nav  >
-                                    <Nav.Link className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} ${clicked ? 'nav-clicked' : ''}`} onClick={() => {console.log(clicked); handleClick('/')}}>
+                                    <Nav.Link href="/" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Dashboard</span>
                                     </Nav.Link>
-                                    <Nav.Link className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} ${clicked ? 'nav-clicked' : ''}`} onClick={() => {console.log('clicked'); handleClick('/pengajuan')}}>
+                                    <Nav.Link href='/pengajuan' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Pengajuan</span>
                                     </Nav.Link>
                                     <Nav.Link href='/lokasi' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>

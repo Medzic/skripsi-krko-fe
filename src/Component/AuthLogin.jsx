@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 import './Auth.css'
 
 
@@ -7,8 +9,27 @@ export const AuthLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:3000/login', {
+                email: email,
+                password: password
+            });
+            const {data} = response
+
+            if(!data.token){
+                console.error('no token received')
+            }
+            Cookies.set('token', data.token, {expires: 1/24})
+            console.log('login sukse. Token: ', data.token);
+        } catch (error) {
+            console.log('eror: ', error);
+        }
+    };
+
     return (
-        <form >
+        <form onSubmit={handleLogin}>
             <input
                 type="email"
                 id="email"
@@ -25,7 +46,7 @@ export const AuthLogin = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button className='form-button' type="submit">Masuk</button>
+            <button className='form-button' type="submit">login</button>
         </form>
     )
 }
