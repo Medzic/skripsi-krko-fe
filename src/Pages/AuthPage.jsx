@@ -1,38 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Auth from '../Component/Auth'
-import { Container, Row, Col } from 'react-bootstrap'
 import './AuthPage.css'
+import Cookies from 'js-cookie'
+import NavigationBarUn from '../Component/NavigationBarUn'
+import Swal from 'sweetalert2'
 
 const AuthPage = () => {
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+
+    if (token) return window.location.href = '/';
+  }, []
+  )
+
+  const handleError = (errorMessage) => {
+    //modal from here
+    if (errorMessage) {
+      Swal.fire({
+        title: 'Error!',
+        text: errorMessage.response.data.error,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#FF0000',
+      })
+    }
+  }
+
+
   return (
     <>
-     <Container className='container'>
-      <Row>
-        <div className='Title '>
-        <h1 >Selamat datang di halaman KRK Online</h1>
-      </div>
-      </Row>
-      <Row >
-          <Col >
-          <div className='Article'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem quia cumque odit iusto itaque iste, nam illum corrupti. Enim omnis quo consectetur quod accusamus nisi, unde et aliquam minima dolorem numquam est blanditiis sed tempora ipsa architecto dicta voluptates debitis, pariatur quae dolor sit cum. Quae reiciendis ea at commodi iste saepe aperiam minima, error minus illum? Quae placeat accusamus voluptatibus commodi inventore minima beatae ipsam harum porro, ratione amet repudiandae, laboriosam sint quo officiis id aliquam ex unde distinctio animi. Quas minus tenetur facere maxime, labore explicabo a! Eius consequatur corporis autem aliquid! Temporibus saepe ab a amet.
+      <NavigationBarUn />
+      <div className='auth-container'>
+        <div className='title '>
+          <h1 >Selamat datang di halaman KRK Online</h1>
         </div>
-          </Col>
-          <Col className='auth-col' >
-          <div className='Auth'>
-            <Auth />
+        <div className='auth-item' >
+          <div className='article'>
           </div>
-          </Col>          
-      </Row>
-    </Container>
+          <div className="auth">
+            <Auth onError={handleError} />
+          </div>
+        </div>
+      </div>
     </>
-   
+
   )
 }
 

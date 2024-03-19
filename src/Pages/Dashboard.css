@@ -1,17 +1,32 @@
-
+.container {
+    position: absolute;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
 
 .card-deck {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 100px;
+    padding-top: 60px;
     justify-content: center;
 }
+
 .card-deck-arsip {
     display: flex;
     flex-wrap: wrap;
     padding-top: 50px;
     justify-content: center;
-    padding-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+        height: 125vh;
+        position: static;
+    }
+
 }
 
 /* .card {
@@ -23,4 +38,3 @@
     background-color: #FFC413;
     transition: background-color 0.3s ease;
 } */
-

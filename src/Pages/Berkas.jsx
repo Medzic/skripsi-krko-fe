@@ -1,8 +1,22 @@
-import React from 'react'
+import Cookies from 'js-cookie';
+import React, { useEffect } from 'react'
+import NavigationBar from '../Component/NavigationBar';
 
 const Berkas = () => {
+  useEffect(() => {
+    const token = Cookies.get('token');
+
+    if (!token) return window.location.href = '/Auth'
+  }, [])
+
   return (
-    <div>Berkas</div>
+
+    <>
+    <NavigationBar/>
+      <div>
+        Berkas
+      </div>
+    </>
   )
 }
 

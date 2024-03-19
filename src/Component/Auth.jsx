@@ -4,11 +4,14 @@ import { AuthLogin } from './AuthLogin';
 import { AuthRegister } from './AuthRegister';
 import './Auth.css'
 
-const Auth = () => {
+const Auth = ({onError}) => {
   const [formType, setFormType] = useState('login');
 
+  const handleLogin = () => {
+    return window.location.href = '/'
+  }
 
-  return (
+   return (
     <div className='Auth-Wrapper'>
       <div className="Auth-Title">PUPR</div>
         <Nav className="Auth-Switch">
@@ -28,7 +31,7 @@ const Auth = () => {
       <div className="Auth-Subtitle">Silahkan masukkan data diri anda</div>
       {/* call the component here */}
       <div className='form'>
-        {formType === 'login' ? <AuthLogin /> : <AuthRegister />}
+        {formType === 'login' ? <AuthLogin onLogin={handleLogin} onError={onError} /> : <AuthRegister />}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap'
 import './NavigationBar.css';
 
-const NavigationBar = () => {
+const NavigationBarUn = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false)
 
     const toggleOffcanvas = (expand) => {
@@ -32,20 +32,8 @@ const NavigationBar = () => {
                             </Offcanvas.Header>
                             <Offcanvas.Body >
                                 <Nav  >
-                                    <Nav.Link href="/" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
-                                        <span className='nav-text'>Dashboard</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/pengajuan' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
-                                        <span className='nav-text'>Pengajuan</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/lokasi' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
-                                        <span className='nav-text'>Lokasi</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
-                                        <span className='nav-text'>Berkas</span>
-                                    </Nav.Link>
-                                    <Nav.Link className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
-                                        <span className='nav-text'>Keluar</span>
+                                    <Nav.Link href="/About" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
+                                        <span className='nav-text'>About</span>
                                     </Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
@@ -58,4 +46,4 @@ const NavigationBar = () => {
     )
 }
 
-export default NavigationBar
+export default NavigationBarUn

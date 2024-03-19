@@ -2,27 +2,24 @@
     width: 380px;
     background-color: white;
     color: black;
-    height: 410px;
+    height: 450px;
     justify-content: center;
     align-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    margin-left: 35px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
 .Auth-Title {
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
-    padding: 10px;
 }
 
 .Auth-Switch {
-    position: absolute;
-    top: 40px;
+    position: relative;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -43,18 +40,16 @@
 }
 
 .Auth-Subtitle {
-    top: 90px;
-    position: absolute;
+    position: relative;
     width: 100%;
 
 }
 
 .form {
-    position: absolute;
+    position: relative;
     height: 100px;
     align-items: center;
     height: 60%;
-    top: 120px;
 }
 
 .form-input {
@@ -66,6 +61,8 @@
 }
 
 .form-button {
+    margin-top: 10px;
+    position: relative;
     width: 50%;
     border-radius: 10px;
     border: none;
