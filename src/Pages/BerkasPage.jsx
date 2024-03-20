@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import NavigationBar from '../Component/NavigationBar'
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import NavigationBar from '../Component/NavigationBar';
 import TambahButton from '../Component/TambahButton';
-import './PengajuanPage.css'
 import PengajuanTabel from '../Component/PengajuanTabel';
+import '../'
 
-const PengajuanPage = () => {
-
+const BerkasPage = () => {
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const PengajuanPage = () => {
   }, [navigate])
 
   return (
+
     <>
     <NavigationBar/>
     <div className='button-css'>
@@ -33,4 +34,4 @@ const PengajuanPage = () => {
   )
 }
 
-export default PengajuanPage
+export default BerkasPage

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap'
 import './NavigationBar.css';
+import { NavLink } from 'react-router-dom';
 
 const NavigationBarUn = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false)
@@ -32,9 +33,9 @@ const NavigationBarUn = () => {
                             </Offcanvas.Header>
                             <Offcanvas.Body >
                                 <Nav  >
-                                    <Nav.Link href="/About" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
+                                    <NavLink to="/About" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>About</span>
-                                    </Nav.Link>
+                                    </NavLink>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap'
+import Cookies from 'js-cookie';
+import Swal from 'sweetalert2'
 import './NavigationBar.css';
 
 const NavigationBar = () => {
@@ -9,13 +12,37 @@ const NavigationBar = () => {
         setShowOffcanvas(!showOffcanvas[expand]);
     };
 
+    const navigate = useNavigate();
+
+    const exitDialog = () => {
+        Swal.fire({
+            title: "Anda Mau Keluar?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Cookies.remove('token');
+                navigate("/Auth");
+                Swal.fire({
+                    title: "Anda Berhasil Keluar!",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            }
+        });
+    }
 
     return (
         <>
             {['sm'].map((expand) => (
-                <Navbar key={expand} expand={expand} className='Navigation sticky-top' > 
+                <Navbar key={expand} expand={expand} className='Navigation sticky-top' >
                     <Container fluid >
-                        <Navbar.Brand href="#" ><img src="https://dpupr.tegalkota.go.id/wp-content/uploads/2021/11/cropped-logo-kota-tegal.png" alt="Dinas Pekerjaan Umum dan Penataan Ruang Kota Tegal"/></Navbar.Brand>
+                        <Navbar.Brand href="#" ><img src="https://dpupr.tegalkota.go.id/wp-content/uploads/2021/11/cropped-logo-kota-tegal.png" alt="Dinas Pekerjaan Umum dan Penataan Ruang Kota Tegal" /></Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={() => toggleOffcanvas(expand)} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
@@ -32,21 +59,21 @@ const NavigationBar = () => {
                             </Offcanvas.Header>
                             <Offcanvas.Body >
                                 <Nav  >
-                                    <Nav.Link href="/" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
+                                    <NavLink to="/" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Dashboard</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/pengajuan' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
+                                    </NavLink>
+                                    <NavLink to='/pengajuan' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Pengajuan</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/lokasi' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                    </NavLink>
+                                    <NavLink to='/lokasi' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Lokasi</span>
-                                    </Nav.Link>
-                                    <Nav.Link href='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                    </NavLink>
+                                    <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Berkas</span>
-                                    </Nav.Link>
-                                    <Nav.Link className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                    </NavLink>
+                                    <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Keluar</span>
-                                    </Nav.Link>
+                                    </NavLink>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

@@ -1,4 +1,5 @@
-import React, { useEffect }  from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Dashboard.css'
 import CardR from '../Component/CardR'
 import CardA from '../Component/CardA'
@@ -9,17 +10,23 @@ import NavigationBar from '../Component/NavigationBar'
 
 const Dashboard = () => {
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+    const redirect = () => {
+      navigate("/Auth")
+    }
     const token = Cookies.get('token');
 
-    if(!token) return window.location.href = '/Auth'
-  }, [])
+    if (!token) return redirect();
+
+  }, [navigate])
 
 
 
   return (
     <>
-    <NavigationBar/>
+      <NavigationBar />
       <div className='card-deck'>
         <CardA />
         <CardP />

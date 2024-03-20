@@ -1,14 +1,21 @@
 import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import NavigationBar from '../Component/NavigationBar'
 import Cookies from 'js-cookie';
 
-const NotFound = () => {
+const NotFoundPage = () => {
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const redirect = () => {
+      navigate("/Auth")
+    }
     const token = Cookies.get('token');
 
-    if(!token) return window.location.href = '/Auth'
-  }, [])
+    if (!token) return redirect();
+
+  }, [navigate])
 
   return (
     <>
@@ -18,4 +25,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound
+export default NotFoundPage

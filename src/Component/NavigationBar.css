@@ -10,7 +10,7 @@
     margin-left: auto;
 }
 
-.Navigation .nav-link {
+.full-hover{
     color: #000;
     transition: background-color 0.3s ease;
     padding-top: 0.5rem;
@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     width: 100px;
+    text-decoration: none;
 }
 
 .navbar-brand img {
@@ -33,26 +34,8 @@
     transition: background-color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.nav-clicked {
-    background-color: rgba(0, 2, 61, 0.5);
-    border-bottom: 7px solid rgb(0, 2, 61);
-    color: #ff0000;
-  }
-
 .full-hover:hover .nav-text {
     color: rgb(255, 255, 255);
-    transition: color 0.3s ease, padding-left 0.3s ease;
-}
-
-.offcanvas-hover:hover {
-    background-color: rgba(0, 2, 61, 0.5);
-    border-bottom: 7px solid rgb(0, 2, 61);
-    transition: background-color 0.3s ease, border-bottom 0.3s ease;
-    border-radius: 3px;
-}
-.offcanvas-hover:hover .nav-text {
-    color: rgb(255, 255, 255);
-    padding-left: 10px;
     transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
@@ -60,5 +43,25 @@
     .navbar-brand img {
         width: 40px;
         height: auto;
+    }
+    .offcanvas-hover{
+        padding-top:20px;
+        color: #000;
+        height: 50px;
+        text-decoration: none;
+        align-items: end;
+        border-bottom: 2px solid;
+    }
+    
+    .offcanvas-hover:hover {
+        background-color: rgba(0, 2, 61, 0.5);
+        border-bottom: 7px solid rgb(0, 2, 61);
+        transition: background-color 0.3s ease, border-bottom 0.3s ease;
+        border-radius: 3px;
+    }
+    .offcanvas-hover:hover .nav-text {
+        color: rgb(255, 255, 255);
+        padding-left: 10px;
+        transition: color 0.3s ease, padding-left 0.3s ease;
     }
 }

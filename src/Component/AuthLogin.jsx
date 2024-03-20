@@ -9,7 +9,6 @@ export const AuthLogin = ({ onLogin, onError }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -24,7 +23,6 @@ export const AuthLogin = ({ onLogin, onError }) => {
                 console.error('no token received')
             }
             Cookies.set('token', data.token, { expires: 1 / 24 })
-            console.log('login sukse. Token: ', data.token);
 
             onLogin();
         } catch (error) {

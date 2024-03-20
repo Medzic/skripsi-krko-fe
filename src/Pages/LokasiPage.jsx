@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import NavigationBar from '../Component/NavigationBar'
 import Cookies from 'js-cookie';
 import TambahButton from '../Component/TambahButton';
-import './PengajuanPage.css'
 import PengajuanTabel from '../Component/PengajuanTabel';
 
-const PengajuanPage = () => {
+const LokasiPage = () => {
 
   const navigate = useNavigate();
 
@@ -33,4 +32,4 @@ const PengajuanPage = () => {
   )
 }
 
-export default PengajuanPage
+export default LokasiPage
