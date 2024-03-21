@@ -4,7 +4,7 @@ import NavigationBar from '../Component/NavigationBar'
 import Cookies from 'js-cookie';
 import TambahButton from '../Component/TambahButton';
 import './PengajuanPage.css'
-import PengajuanTabel from '../Component/PengajuanTabel';
+import TabelPengajuan from '../Component/TabelPengajuan';
 
 const PengajuanPage = () => {
 
@@ -27,7 +27,7 @@ const PengajuanPage = () => {
       <TambahButton/>
     </div>
     <div className="tabel-css">
-      <PengajuanTabel/>
+      <TabelPengajuan/>
     </div>
     </>
   )

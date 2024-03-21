@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import NavigationBar from '../Component/NavigationBar';
 import TambahButton from '../Component/TambahButton';
-import PengajuanTabel from '../Component/PengajuanTabel';
-import '../'
+import TabelPengajuan from '../Component/TabelPengajuan';
 
 const BerkasPage = () => {
   
@@ -28,7 +27,7 @@ const BerkasPage = () => {
       <TambahButton/>
     </div>
     <div className="tabel-css">
-      <PengajuanTabel/>
+      <TabelPengajuan/>
     </div>
     </>
   )

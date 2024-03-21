@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import './PengajuanTabel.css'
+import './TabelPengajuan.css'
 import axios from 'axios';
 
-const PengajuanTabel = () => {
+const TabelPengajuan = () => {
     const [data, setData] = useState([]);
 
     const fetchPengajuan = async () => {
@@ -77,4 +77,4 @@ const PengajuanTabel = () => {
     )
 }
 
-export default PengajuanTabel
+export default TabelPengajuan

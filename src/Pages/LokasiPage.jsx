@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import NavigationBar from '../Component/NavigationBar'
 import Cookies from 'js-cookie';
 import TambahButton from '../Component/TambahButton';
-import PengajuanTabel from '../Component/PengajuanTabel';
+import TabelLokasi from '../Component/TabelLokasi';
+import './PengajuanPage.css'
 
 const LokasiPage = () => {
 
@@ -26,7 +27,7 @@ const LokasiPage = () => {
       <TambahButton/>
     </div>
     <div className="tabel-css">
-      <PengajuanTabel/>
+      <TabelLokasi/>
     </div>
     </>
   )
