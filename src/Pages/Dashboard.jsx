@@ -1,31 +1,19 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import './Dashboard.css'
 import CardR from '../Component/CardR'
 import CardA from '../Component/CardA'
 import CardP from '../Component/CardP'
 import { ArsipButton } from '../Component/ArsipButton'
-import Cookies from 'js-cookie'
 import NavigationBar from '../Component/NavigationBar'
+import { TokenFalseRedirect } from './TokenRedirect'
 
 const Dashboard = () => {
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const redirect = () => {
-      navigate("/Auth")
-    }
-    const token = Cookies.get('token');
-
-    if (!token) return redirect();
-
-  }, [navigate])
 
 
 
   return (
     <>
+    <TokenFalseRedirect/>
       <NavigationBar />
       <div className='card-deck'>
         <CardA />

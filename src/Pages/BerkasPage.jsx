@@ -1,33 +1,21 @@
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom'
-import React, { useEffect } from 'react'
+import React from 'react'
 import NavigationBar from '../Component/NavigationBar';
-import TambahButton from '../Component/TambahButton';
-import TabelPengajuan from '../Component/TabelPengajuan';
+import ButtonTambahPengajuan from '../Component/ButtonTambahPengajuan';
+import { TokenFalseRedirect } from './TokenRedirect';
+import TabelBerkas from '../Component/TabelBerkas';
 
 const BerkasPage = () => {
-  
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const redirect = () => {
-      navigate("/Auth")
-    }
-    const token = Cookies.get('token');
-
-    if (!token) return redirect();
-
-  }, [navigate])
 
   return (
 
     <>
+    <TokenFalseRedirect/>
     <NavigationBar/>
     <div className='button-css'>
-      <TambahButton/>
+      <ButtonTambahPengajuan/>
     </div>
     <div className="tabel-css">
-      <TabelPengajuan/>
+      <TabelBerkas/>
     </div>
     </>
   )

@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import './TabelPengajuan.css'
 import axios from 'axios';
+import ButtonLihatPengajuan from './ButtonLihatPengajuan';
 
 const TabelPengajuan = () => {
     const [data, setData] = useState([]);
@@ -45,7 +46,7 @@ const TabelPengajuan = () => {
                             <td>{index + 1} </td>
                             <td>{item.namep}</td>
                             <td>
-                                <Button className="lihat">Lihat</Button>
+                                <ButtonLihatPengajuan onSuccess={item.id} />
                                 <Button className="edit">Edit</Button>
                                 <Button className="hapus">Hapus</Button>
                             </td>

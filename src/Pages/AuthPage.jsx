@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Auth from '../Component/Auth'
 import './AuthPage.css'
-import Cookies from 'js-cookie'
 import NavigationBarUn from '../Component/NavigationBarUn'
 import Swal from 'sweetalert2'
+import { TokenTrueRedirect } from './TokenRedirect'
 
 const AuthPage = () => {
 
-  useEffect(() => {
-    const token = Cookies.get('token');
-
-    if (token) return window.location.href = '/';
-  }, []
-  )
+  
 
   const handleError = (errorMessage) => {
     //modal from here
@@ -30,6 +25,7 @@ const AuthPage = () => {
 
   return (
     <>
+    <TokenTrueRedirect/>
       <NavigationBarUn />
       <div className='auth-container'>
         <div className='title '>

@@ -17,7 +17,6 @@ export const AuthLogin = ({ onLogin, onError }) => {
                 password: password
             });
             const { data } = response
-            console.log(data);
 
             if (!data.token) {
                 console.error('no token received')
