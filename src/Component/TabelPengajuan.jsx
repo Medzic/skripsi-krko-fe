@@ -54,26 +54,6 @@ const TabelPengajuan = () => {
 
                 </tbody>
             </Table>
-
-            {/* <table className='container'>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama</th>
-                    <th>Aksi</th>
-                </tr>
-
-                {data.map((item, index) => (
-                    <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{item.namep}</td>
-                        <td>
-                            <button className="lihat">Lihat</button>
-                            <button className="edit">Edit</button>
-                            <button className="hapus">Hapus</button>
-                        </td>
-                    </tr>
-                ))}
-            </table> */}
         </>
     )
 }
