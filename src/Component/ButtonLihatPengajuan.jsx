@@ -2,6 +2,7 @@ import React from 'react'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import './ButtonTambah.css'
 
 const ButtonLihatPengajuan = ({ onSuccess }) => {
     const fetchPengajuan = async () => {
@@ -22,7 +23,7 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
                 icon: 'info',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#00aa0e',
-                width: '50%',
+                width: '80%',
             });
             console.log(response);
         } catch (error) {
@@ -43,40 +44,77 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
 
         // Format pengajuan data as needed
         const formattedData = `
-        <div style="display: flex;">
-            <div style="width: 50%; padding-right: 20px; text-align: left; border-bottom: 2px solid;">
-                <p><strong>Tanggal</strong></p>
-                <p><strong>Nama Pemohon</strong></p>
-                <p><strong>Nama Pengaju 1</strong></p>
-                <p><strong>Nama Pengaju 2</strong></p>
-                <p><strong>NIK Pengaju 1</strong></p>
-                <p><strong>NIK Pengaju 2</strong></p>
-                <p><strong>Telepon</strong></p>
-                <p><strong>Alamat</strong></p>
-                <p><strong>Rt</strong></p>
-                <p><strong>Rw</strong></p>
-                <p><strong>Kelurahan</strong></p>
-                <p><strong>Kecamatan</strong></p>
-                <p><strong>Kota</strong></p>
-                <p><strong>ID</strong></p>
-            </div>
-            <div style="width: 50%; text-align: left; border-bottom: 2px solid;">
-                <p>: ${pengajuanData.tanggal ?? ''}</p>
-                <p>: ${pengajuanData.namep ?? ''}</p>
-                <p>: ${pengajuanData.namep1 ?? ''}</p>
-                <p>: ${pengajuanData.namep2 ?? ''}</p>
-                <p>: ${pengajuanData.nikp1 ?? ''}</p>
-                <p>: ${pengajuanData.nikpp2 ?? ''}</p>
-                <p>: ${pengajuanData.telp ?? ''}</p>
-                <p>: ${pengajuanData.alamat ?? ''}</p>
-                <p>: ${pengajuanData.rt ?? ''}</p>
-                <p>: ${pengajuanData.rw ?? ''}</p>
-                <p>: ${pengajuanData.kelurahan ?? ''}</p>
-                <p>: ${pengajuanData.kecamatan ?? ''}</p>
-                <p>: ${pengajuanData.kota ?? ''}</p>
-                <p>: ${pengajuanData.id ?? ''}</p>
-            </div>
-        </div>
+        <table>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Tanggal</strong></th>
+                        <td class='td-style'>: ${pengajuanData.tanggal ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pengaju</strong></th>
+                        <td class='td-style'>: ${pengajuanData.namep ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon 1</strong></th>
+                        <td class='td-style'>: ${pengajuanData.namep1 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon 2</strong></th>
+                        <td class='td-style'>: ${pengajuanData.namep2 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>NIK Pemohon 1</strong></th>
+                        <td class='td-style'>: ${pengajuanData.nikp1 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>NIK Pemohon 2</strong></th>
+                        <td class='td-style'>: ${pengajuanData.nikpp2 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>No. Telp</strong></th>
+                        <td class='td-style'>: ${pengajuanData.telp ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Alamat Pengaju</strong></th>
+                        <td class='td-style'>: ${pengajuanData.alamat ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Rt</strong></th>
+                        <td class='td-style'>: ${pengajuanData.rt ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Rw</strong></th>
+                        <td class='td-style'>: ${pengajuanData.rw ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Kelurahan</strong></th>
+                        <td class='td-style'>: 
+                        ${pengajuanData.kelurahan ?? ''}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Kecamatan</strong></th>
+                        <td class='td-style'>: 
+                        ${pengajuanData.kecamatan ?? ''}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='text-align: left; width: 50%;' ><strong>Kota</strong></th>
+                        <td class='td-style' >: ${pengajuanData.kota ?? ''}</td>
+
+                    </tr>
+                </table>
         `; // Adjust this based on your data structure
         return formattedData;
     };

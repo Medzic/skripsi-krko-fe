@@ -24,7 +24,7 @@ const ButtonLihatLokasi = ({ onSuccess }) => {
                 icon: 'info',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#00aa0e',
-                width: '50%',
+                width: '80%',
             });
         } catch (error) {
             console.log('Error: ', error);
@@ -44,32 +44,58 @@ const ButtonLihatLokasi = ({ onSuccess }) => {
 
         // Format Lokasi data as needed
         const formattedData = `
-        <div style="display: flex; ">
-        <div style="width: 50%; padding-right: 20px; text-align: left; border-bottom: 2px solid;">
-            <p><strong>Lokasi Tanah</strong></p>
-            <p><strong>Rt</strong></p>
-            <p><strong>Rw</strong></p>
-            <p><strong>Kelurahan</strong></p>
-            <p><strong>Kecamatan</strong></p>
-            <p><strong>Keperluan</strong></p>
-            <p><strong>Sertifikat Tanah</strong></p>
-            <p><strong>Nomor Sertifikat</strong></p>
-            <p><strong>Luas Tanah</strong></p>
-            <p><strong>Pemilik</strong></p>
-        </div>
-        <div style="width: 50%; text-align: left; border-bottom: 2px solid;">
-            <p>: ${lokasiData.loktanah}</p>
-            <p>: ${lokasiData.rt}</p>
-            <p>: ${lokasiData.rw}</p>
-            <p>: ${lokasiData.kelurahan}</p>
-            <p>: ${lokasiData.kecamatan}</p>
-            <p>: ${lokasiData.keperluan}</p>
-            <p>: ${lokasiData.stanah}</p>
-            <p>: ${lokasiData.nocert}</p>
-            <p>: ${lokasiData.luas}</p>
-            <p>: ${lokasiData.atasnama}</p>
-        </div>
-      </div>
+        <table>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;'><strong>Lokasi Tanah</strong></th>
+                <td class='td-style'>: ${lokasiData.loktanah}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Rt</strong></th>
+                <td class='td-style'>: ${lokasiData.rt}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Rw</strong></th>
+                <td class='td-style'>: ${lokasiData.rw}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;'><strong>Kelurahan</strong></th>
+                <td class='td-style'>: ${lokasiData.kelurahan}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;'><strong>Kecamatan</strong></th>
+                <td class='td-style'>: ${lokasiData.kecamatan}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Keperluan</strong></th>
+                <td class='td-style'>: ${lokasiData.keperluan}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Sertifikat Tanah</strong></th>
+                <td class='td-style'>: ${lokasiData.stanah}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Nomor Sertifikat</strong></th>
+                <td class='td-style'>: ${lokasiData.nocert}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Luas Tanah</strong></th>
+                <td class='td-style'>: ${lokasiData.luas}</td>
+
+            </tr>
+            <tr>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Pemilik</strong></th>
+                <td class='td-style'>: ${lokasiData.atasnama}</td>
+
+            </tr>
+        </table>
         `; 
         return formattedData;
     };

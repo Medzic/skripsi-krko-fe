@@ -97,8 +97,14 @@
     }
 
     .th-style{
-        font-size: 12px; 
-        width: 100%;
+        font-size: 10px; 
+        width: 90%;
         text-align: left;
+        
+      }
+    .td-style{
+        font-size: 12px; 
+        text-align: left;
+        
       }
 }
