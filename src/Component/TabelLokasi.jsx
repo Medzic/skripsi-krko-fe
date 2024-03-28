@@ -4,9 +4,11 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import './TabelLokasi.css'
 import ButtonLihatLokasi from './ButtonLihatLokasi';
+import TabelLokasiSkeleton from './Skeleton/TabelLokasiSkeleton';
 
 const TabelLokasi = () => {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchLokasi = async () => {
         try {
@@ -21,6 +23,7 @@ const TabelLokasi = () => {
 
             const response = await axios.get('http://localhost:3000/lokasi', config)
             setData(response.data);
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -33,6 +36,9 @@ const TabelLokasi = () => {
 
     return (
         <div>
+            {isLoading ? ( 
+                <TabelLokasiSkeleton />
+            ) : (
             <Table className='position-relative' striped bordered hover size="sm">
                 <thead>
                     <tr>
@@ -56,6 +62,7 @@ const TabelLokasi = () => {
                         </tr>))}
                 </tbody>
             </Table>
+            )}
         </div>
     )
 }

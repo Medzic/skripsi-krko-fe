@@ -25,7 +25,6 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
                 confirmButtonColor: '#00aa0e',
                 width: '80%',
             });
-            console.log(response);
         } catch (error) {
             console.log(error);
             Swal.fire({
@@ -72,7 +71,7 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>NIK Pemohon 2</strong></th>
-                        <td class='td-style'>: ${pengajuanData.nikpp2 ?? ''}</td>
+                        <td class='td-style'>: ${pengajuanData.nikp2 ?? ''}</td>
 
                     </tr>
                     <tr>

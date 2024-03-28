@@ -4,9 +4,12 @@ import Button from 'react-bootstrap/Button';
 import './TabelPengajuan.css'
 import axios from 'axios';
 import ButtonLihatPengajuan from './ButtonLihatPengajuan';
+import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
+import ButtonEditPengajuan from './ButtonEditPengajuan';
 
 const TabelPengajuan = () => {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchPengajuan = async () => {
         try {
@@ -21,7 +24,7 @@ const TabelPengajuan = () => {
 
             const response = await axios.get('http://localhost:3000/pengajuan', config)
             setData(response.data);
-            console.log(response);
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -32,28 +35,31 @@ const TabelPengajuan = () => {
 
     return (
         <>
-            <Table className='position-relative' striped bordered hover size="sm">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Nama Pemohon</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr key={index}>
-                            <td>{index + 1} </td>
-                            <td>{item.namep}</td>
-                            <td>
-                                <ButtonLihatPengajuan onSuccess={item.id} />
-                                <Button className="edit">Edit</Button>
-                                <Button className="hapus">Hapus</Button>
-                            </td>
-                        </tr>))}
-
-                </tbody>
-            </Table>
+            {isLoading ? (
+                <TabelPengajuanSkeleton />
+            ) : (
+                <Table className='position-relative' striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama Pemohon</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr key={index}>
+                                <td>{index + 1} </td>
+                                <td>{item.namep}</td>
+                                <td>
+                                    <ButtonLihatPengajuan onSuccess={item.id} />
+                                    <ButtonEditPengajuan onSuccess={item.id}/>
+                                    <Button className="hapus">Hapus</Button>
+                                </td>
+                            </tr>))}
+                    </tbody>
+                </Table>
+            )}
         </>
     )
 }

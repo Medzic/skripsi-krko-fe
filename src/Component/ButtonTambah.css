@@ -83,6 +83,18 @@
     border-bottom: 2px solid;
 }
 
+.tr-style{
+    width: 50%;
+}
+
+.th-style{
+    width: 50%;
+}
+
+.td-style{
+    width: 50%;
+}
+
 @media (max-width: 768px) {
     .button-item {
         height: 60px;
