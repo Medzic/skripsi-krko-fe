@@ -5,6 +5,7 @@ import axios from 'axios';
 import './TabelLokasi.css'
 import ButtonLihatLokasi from './ButtonLihatLokasi';
 import TabelLokasiSkeleton from './Skeleton/TabelLokasiSkeleton';
+import ButtonEditLokasi from './ButtonEditLokasi';
 
 const TabelLokasi = () => {
     const [data, setData] = useState([]);
@@ -56,7 +57,7 @@ const TabelLokasi = () => {
                             <td>{item.Lokasi?.loktanah}</td>
                             <td className='m-1'>
                                 <ButtonLihatLokasi onSuccess={item.Lokasi?.id} className="lihat"/>
-                                <Button className="edit">Edit</Button>
+                                <ButtonEditLokasi onSuccess={item.Lokasi?.id}/>
                                 <Button className="hapus">Hapus</Button>
                             </td>
                         </tr>))}
