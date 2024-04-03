@@ -77,6 +77,8 @@ const ButtonEditLokasi = ({ onSuccess }) => {
             return '<p>No Pengajuan data available</p>';
         }
 
+        const filterData = ((data) => data.id !== lokasiData.Pengajuan.id)
+
 
         // Format Lokasi data as needed
         const formattedData = `
@@ -87,7 +89,7 @@ const ButtonEditLokasi = ({ onSuccess }) => {
                             <select style=' width: 90%;' id='pengajuanId' >
                             
                                 <option value='${lokasiData.Pengajuan.id}' >${lokasiData.Pengajuan.namep}</option>
-                                ${allPengajuan.map(item =>
+                                ${allPengajuan.filter(filterData).map(item =>
                                     item.id !== lokasiData.Pengajuan.id ? 
                                     `<option value="${item.id}">${item.namep}</option>` : ''
                                 ).join('')}

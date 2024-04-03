@@ -48,7 +48,7 @@ const ButtonTambahBerkas = () => {
             cancelButtonText: 'Batal',
             preConfirm: async () => {
                 const pengajuanId = document.getElementById('pengajuanId').value;
-                const files = document.getElementById('files').files[0]; // Get the first selected file
+                const files = document.getElementById('files').files[0]; 
                 return [pengajuanId, files];
             }
         }).then((result) => {

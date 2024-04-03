@@ -117,6 +117,9 @@
     .td-style{
         font-size: 12px; 
         text-align: left;
-        
       }
+    .long-name{
+        font-size: 12px; 
+        overflow-wrap: break-word;
+    }
 }

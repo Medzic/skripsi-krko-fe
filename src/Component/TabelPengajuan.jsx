@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import './TabelPengajuan.css'
 import axios from 'axios';
 import ButtonLihatPengajuan from './ButtonLihatPengajuan';
 import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import ButtonEditPengajuan from './ButtonEditPengajuan';
+import ButtonHapusPengajuan from './ButtonHapusPengajuan';
 
 const TabelPengajuan = () => {
     const [data, setData] = useState([]);
@@ -54,7 +54,7 @@ const TabelPengajuan = () => {
                                 <td>
                                     <ButtonLihatPengajuan onSuccess={item.id} />
                                     <ButtonEditPengajuan onSuccess={item.id}/>
-                                    <Button className="hapus">Hapus</Button>
+                                    <ButtonHapusPengajuan onSuccess={item.id} />
                                 </td>
                             </tr>))}
                     </tbody>

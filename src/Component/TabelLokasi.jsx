@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import './TabelLokasi.css'
 import ButtonLihatLokasi from './ButtonLihatLokasi';
 import TabelLokasiSkeleton from './Skeleton/TabelLokasiSkeleton';
 import ButtonEditLokasi from './ButtonEditLokasi';
+import ButtonHapusLokasi from './ButtonHapusLokasi';
 
 const TabelLokasi = () => {
     const [data, setData] = useState([]);
@@ -58,7 +58,7 @@ const TabelLokasi = () => {
                             <td className='m-1'>
                                 <ButtonLihatLokasi onSuccess={item.Lokasi?.id} className="lihat"/>
                                 <ButtonEditLokasi onSuccess={item.Lokasi?.id}/>
-                                <Button className="hapus">Hapus</Button>
+                                <ButtonHapusLokasi onSuccess={item.Lokasi?.id}/>
                             </td>
                         </tr>))}
                 </tbody>

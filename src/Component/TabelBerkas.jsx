@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table'
-import Button from 'react-bootstrap/Button'
 import { NavLink } from 'react-router-dom'
 import TabelBerkasSkeleton from './Skeleton/TabelBerkasSkeleton'
+import ButtonEditBerkas from './ButtonEditBerkas'
+import ButtonHapusBerkas from './ButtonHapusBerkas'
 
 const TabelBerkas = () => {
     const [data, setData] = useState([]);
@@ -21,10 +22,12 @@ const TabelBerkas = () => {
             };
 
             const response = await axios.get('http://localhost:3000/dokumen', config)
+
             setData(response.data);
-            setIsLoading(false);
         } catch (error) {
             console.log(error);
+        } finally {
+            setIsLoading(false);
         }
     }
     useEffect(() => {
@@ -34,8 +37,18 @@ const TabelBerkas = () => {
 
     return (
         <div>
-            {isLoading ? ( 
+            {isLoading ? (
                 <TabelBerkasSkeleton />
+            ) : data.length === 0 ? (
+                <Table className='position-relative' striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>
+                               Data Tidak Ditemukan
+                            </th>
+                        </tr>
+                    </thead>
+                </Table>
             ) : (
                 <Table className='position-relative' striped bordered hover size="sm">
                     <thead>
@@ -46,17 +59,18 @@ const TabelBerkas = () => {
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {data.map((item, index) => (
+                    <tbody>{
+                        data.map((item, index) => (
                             <tr key={index}>
                                 <td>{index + 1} </td>
                                 <td>{item.name}</td>
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>
-                                    <Button className="edit">Edit</Button>
-                                    <Button className="hapus">Hapus</Button>
+                                    <ButtonEditBerkas onSuccess={item.id} />
+                                    <ButtonHapusBerkas onSuccess={item.id}/>
                                 </td>
-                            </tr>))}
+                            </tr>))
+                    }
                     </tbody>
                 </Table>
             )}
