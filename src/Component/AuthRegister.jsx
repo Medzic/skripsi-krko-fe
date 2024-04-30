@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import'./Auth.css'
 
 
 
-export const AuthRegister = () => {
+export const AuthRegister = ({ onLogin, onError }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,10 +12,27 @@ export const AuthRegister = () => {
   const [telp, setTelp] = useState('');
   const [alamat, setAlamat] = useState('');
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+        await axios.post('http://localhost:3000/register', {
+            nama: username,
+            email: email,
+            telp: telp,
+            alamat: alamat,
+            password: password
+        });
+
+        onLogin();
+    } catch (error) {
+        onError(error);
+    }
+};
+
   return (
-      <form >
+      <form onSubmit={handleRegister}>
         <input
-          type='username'
+          type='text'
           id='username'
           placeholder='Nama'
           className='form-input'
@@ -32,7 +50,7 @@ export const AuthRegister = () => {
         
         
         <input
-          type='telp'
+          type='number'
           id='telp'
           placeholder='Telepon'
           className='form-input'
@@ -40,7 +58,7 @@ export const AuthRegister = () => {
           onChange={(e) => setTelp(e.target.value)}
         />
         <input
-          type='alamat'
+          type='text'
           id='alamat'
           placeholder='Alamat'
           className='form-input'

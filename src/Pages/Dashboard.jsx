@@ -4,8 +4,9 @@ import CardR from '../Component/CardR'
 import CardA from '../Component/CardA'
 import CardP from '../Component/CardP'
 import { ArsipButton } from '../Component/ArsipButton'
-import NavigationBar from '../Component/NavigationBar'
+// import NavigationBar from '../Component/NavigationBar'
 import { TokenFalseRedirect } from './TokenRedirect'
+import ConditionBar from './ConditionBar'
 
 const Dashboard = () => {
 
@@ -13,8 +14,8 @@ const Dashboard = () => {
 
   return (
     <>
-    <TokenFalseRedirect/>
-      <NavigationBar />
+      <TokenFalseRedirect />
+      <ConditionBar />
       <div className='card-deck'>
         <CardA />
         <CardP />

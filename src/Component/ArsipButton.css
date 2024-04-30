@@ -7,7 +7,9 @@
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
+    text-align: center;
 }
+
 .arsip-button:hover{
     /* width: 900px; */
     border-radius: 0.50rem;

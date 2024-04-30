@@ -1,26 +1,10 @@
 import React from 'react'
-import Auth from '../Component/Auth'
 import './AuthPage.css'
-import Swal from 'sweetalert2'
 import { TokenTrueRedirect } from './TokenRedirect'
+import AuthAdmin from '../Component/AuthAdmin'
 import NavigationBarUn from '../Component/NavigationBarUn'
 
-const AuthPage = () => {
-
-  
-
-  const handleError = (errorMessage) => {
-    //modal from here
-    if (errorMessage) {
-      Swal.fire({
-        title: 'Error!',
-        text: errorMessage.response.data.error,
-        icon: 'error',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#FF0000',
-      })
-    }
-  }
+const AuthAdminPage = () => {
 
 
   return (
@@ -35,7 +19,7 @@ const AuthPage = () => {
           <div className='article'>
           </div>
           <div className="auth">
-            <Auth onError={handleError} />
+            <AuthAdmin/>
           </div>
         </div>
       </div>
@@ -44,5 +28,5 @@ const AuthPage = () => {
   )
 }
 
-export default AuthPage
+export default AuthAdminPage
 

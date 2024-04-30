@@ -1,8 +1,8 @@
 import React from 'react'
-import NavigationBar from '../Component/NavigationBar';
 import { TokenFalseRedirect } from './TokenRedirect';
 import TabelBerkas from '../Component/TabelBerkas';
 import ButtonTambahBerkas from '../Component/ButtonTambahBerkas';
+import ConditionBar from './ConditionBar';
 
 const BerkasPage = () => {
 
@@ -10,7 +10,7 @@ const BerkasPage = () => {
 
     <>
     <TokenFalseRedirect/>
-    <NavigationBar/>
+    <ConditionBar/>
     <div className='button-css'>
       <ButtonTambahBerkas/>
     </div>

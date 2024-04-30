@@ -1,13 +1,13 @@
 import React from 'react'
-import NavigationBar from '../Component/NavigationBar'
 import { TokenFalseRedirect } from './TokenRedirect';
+import ConditionBar from './ConditionBar';
 
 const NotFoundPage = () => {
 
   return (
     <>
     <TokenFalseRedirect/>
-    <NavigationBar/>
+    <ConditionBar/>
     <h1>halaman tidak ditemukan</h1>
     </>
   )

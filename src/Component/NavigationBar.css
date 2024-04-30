@@ -1,5 +1,5 @@
 .Navigation {
-    background-color: rgb(255, 196, 19);
+    background-color: #ffc413;
     height: 60px;
     color: black;
     top: 0;
@@ -12,7 +12,6 @@
 
 .full-hover{
     color: #000;
-    transition: background-color 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     height: 60px;

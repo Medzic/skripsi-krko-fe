@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import Swal from 'sweetalert2'
 import './NavigationBar.css';
 
-const NavigationBar = () => {
+const NavigationBarAdmin = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false)
 
     const toggleOffcanvas = (expand) => {
@@ -25,8 +25,9 @@ const NavigationBar = () => {
             cancelButtonText: "Tidak"
         }).then((result) => {
             if (result.isConfirmed) {
-                navigate("/");
                 Cookies.remove('token');
+                Cookies.remove('role');
+                navigate("/Administrator");
                 Swal.fire({
                     title: "Anda Berhasil Keluar!",
                     icon: "success",
@@ -62,6 +63,10 @@ const NavigationBar = () => {
                                     <NavLink to="/Dashboard" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Dashboard</span>
                                     </NavLink>
+                                    <NavLink to="/Dashboard-Admin" className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
+                                        <span className='nav-text'>Admin</span>
+                                    </NavLink>
+
                                     <NavLink to='/pengajuan' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'} `} >
                                         <span className='nav-text'>Pengajuan</span>
                                     </NavLink>
@@ -70,6 +75,9 @@ const NavigationBar = () => {
                                     </NavLink>
                                     <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Berkas</span>
+                                    </NavLink>
+                                    <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                        <span className='nav-text'>Profil</span>
                                     </NavLink>
                                     <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Keluar</span>
@@ -85,4 +93,4 @@ const NavigationBar = () => {
     )
 }
 
-export default NavigationBar
+export default NavigationBarAdmin

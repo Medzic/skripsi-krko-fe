@@ -24,6 +24,8 @@
     justify-content: center;
     align-items: center;
     height: 50px;
+    margin-bottom: 50px;
+
 }
 
 .Auth-Switch .nav-link.active {
@@ -33,8 +35,8 @@
 
 .Auth-Switch .nav-link {
     color: black;
-    border-bottom: 1px solid #FFC413;
 }
+
 .Auth-Switch .nav-link:hover {
     color: black;
 }
@@ -42,6 +44,7 @@
 .Auth-Subtitle {
     position: relative;
     width: 100%;
+    padding-bottom: 20px;
 
 }
 

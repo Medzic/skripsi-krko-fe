@@ -39,6 +39,16 @@ const TabelLokasi = () => {
         <div>
             {isLoading ? ( 
                 <TabelLokasiSkeleton />
+            ) : data.length === 0 ? (
+                <Table className='position-relative' striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>
+                               Data Tidak Ditemukan
+                            </th>
+                        </tr>
+                    </thead>
+                </Table>
             ) : (
             <Table className='position-relative' striped bordered hover size="sm">
                 <thead>

@@ -5,6 +5,7 @@
 }
 
 .tabel-css {
+    position: relative;
     align-items: center;
     justify-content: center;
     margin: 30px;

@@ -34,7 +34,6 @@ const TabelBerkas = () => {
         fetchBerkas();
     }, [])
 
-
     return (
         <div>
             {isLoading ? (
@@ -44,7 +43,7 @@ const TabelBerkas = () => {
                     <thead>
                         <tr>
                             <th>
-                               Data Tidak Ditemukan
+                                Data Tidak Ditemukan
                             </th>
                         </tr>
                     </thead>
@@ -67,7 +66,7 @@ const TabelBerkas = () => {
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>
                                     <ButtonEditBerkas onSuccess={item.id} />
-                                    <ButtonHapusBerkas onSuccess={item.id}/>
+                                    <ButtonHapusBerkas onSuccess={item.id} />
                                 </td>
                             </tr>))
                     }

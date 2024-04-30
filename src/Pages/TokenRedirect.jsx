@@ -13,7 +13,7 @@ export const TokenTrueRedirect = () => {
             try {
                 const token = Cookies.get('token');
                 if (token) {
-                    navigate("/");
+                    navigate("/Dashboard");
                     Swal.fire({
                         title: 'Error!',
                         text: 'Token Terdeteksi, Anda Tidak perlu login lagi!',
@@ -46,7 +46,7 @@ export const TokenFalseRedirect = () => {
             try {
                 const token = Cookies.get('token');
                 if (!token) {
-                    navigate("/Auth");
+                    navigate("/");
                     Swal.fire({
                         title: 'Error!',
                         text: 'silahkan login terlebih dahulu',
@@ -64,6 +64,45 @@ export const TokenFalseRedirect = () => {
     }, [navigate]);
 
     return (
+        null
+    )
+}
+
+export const IsAdminToken = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const redirect = () => {
+            try {
+                const cookies = document.cookie.split(';');
+
+                let role = null;
+
+                cookies.forEach(cookie => {
+                    const cookieParts = cookie.split('=');
+                    if (cookieParts.length === 2) {
+                        const [key, value] = cookieParts;
+                        const trimmedKey = key.trim();
+                        const trimmedValue = value.trim();
+
+                        if (trimmedKey === 'role') {
+                            role = trimmedValue;
+                        }
+                    }
+                });
+
+                if (role !== 'Admin') {
+                    navigate('/*')
+                }
+            } catch (error) {
+                console.error('Error redirecting:', error);
+            }
+
+        };
+        redirect();
+    }, [navigate]);
+
+    return(
         null
     )
 }

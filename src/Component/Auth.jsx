@@ -18,7 +18,16 @@ const Auth = ({ onError }) => {
       showConfirmButton: false,
       timer: 3000
     });
-    return navigate("/");
+    return navigate("/Dashboard");
+  }
+  const handleRegister = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Anda Berhasil Mendaftar",
+      showConfirmButton: false,
+      timer: 3000
+    });
+    return window.location.reload();
   }
 
   return (
@@ -41,7 +50,7 @@ const Auth = ({ onError }) => {
       <div className="Auth-Subtitle">Silahkan masukkan data diri anda</div>
       {/* call the component here */}
       <div className='form'>
-        {formType === 'login' ? <AuthLogin onLogin={handleLogin} onError={onError} /> : <AuthRegister />}
+        {formType === 'login' ? <AuthLogin onLogin={handleLogin} onError={onError} /> : <AuthRegister onLogin={handleRegister} onError={onError} />}
       </div>
     </div>
   );

@@ -25,7 +25,6 @@ export const AuthLogin = ({ onLogin, onError }) => {
 
             onLogin();
         } catch (error) {
-            //undone
             onError(error);
         }
     };
