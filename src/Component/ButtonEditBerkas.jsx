@@ -154,7 +154,7 @@ const ButtonEditBerkas = ({ onSuccess }) => {
     }, [apiSuccess]);
 
     return (
-        <Button onClick={fetchBerkas}>
+        <Button style={{ marginRight: '10px'  }} variant='warning' onClick={fetchBerkas}>
             Edit
         </Button>
     )

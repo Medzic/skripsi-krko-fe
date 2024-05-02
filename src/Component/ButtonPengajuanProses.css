@@ -39,3 +39,7 @@
 .close-button:hover {
     background-color: #eeeeee;
 }
+
+.tabel-header{
+    border: 5px 0 5px 0 solid ;
+}

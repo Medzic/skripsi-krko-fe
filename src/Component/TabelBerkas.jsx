@@ -52,7 +52,7 @@ const TabelBerkas = () => {
                 <Table className='position-relative' striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th>PId</th>
                             <th>Nama Berkas</th>
                             <th>Link</th>
                             <th>Aksi</th>
@@ -61,7 +61,7 @@ const TabelBerkas = () => {
                     <tbody>{
                         data.map((item, index) => (
                             <tr key={index}>
-                                <td>{index + 1} </td>
+                                <td>{item.pengajuanId} </td>
                                 <td>{item.name}</td>
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>

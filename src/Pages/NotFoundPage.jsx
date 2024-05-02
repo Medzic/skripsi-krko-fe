@@ -1,6 +1,7 @@
 import React from 'react'
 import { TokenFalseRedirect } from './TokenRedirect';
 import ConditionBar from './ConditionBar';
+import './NotFound.css'
 
 const NotFoundPage = () => {
 
@@ -8,7 +9,7 @@ const NotFoundPage = () => {
     <>
     <TokenFalseRedirect/>
     <ConditionBar/>
-    <h1>halaman tidak ditemukan</h1>
+    <h1 >halaman tidak ditemukan gan</h1>
     </>
   )
 }

@@ -119,7 +119,7 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
     };
 
     return (
-        <Button onClick={fetchPengajuan}>
+        <Button style={{ marginRight: '10px'  }} variant='success' onClick={fetchPengajuan}>
             Lihat
         </Button>
     )

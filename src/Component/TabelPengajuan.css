@@ -40,3 +40,74 @@
 .btn-proses{
     text-align: center;
 }
+
+.card-user-container {
+    display: block;
+    position: relative;
+    background: white;
+    border-radius: 15px 0 15px 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    color: black;
+    margin-bottom: 20px;
+}
+.print-user-container {
+    display: block;
+    position: relative;
+    background: white;
+    border-radius: 15px 0 15px 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    color: black;
+    margin: 30px;
+}
+
+.item-container{
+    display: grid;
+    grid-template-columns: auto 30%;
+}
+
+.card-user-item {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-right: 3px solid;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+
+}
+
+.card-btn{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
+.header-rejected-card{
+    background: linear-gradient(144deg, #FF0000, #FFFFFF);
+    color: white;
+    border-radius: 15px 0 0 0;
+    padding: 10px 0 5px 10px;
+}
+.header-acc-card{
+    background: linear-gradient(144deg, #025206, #FFFFFF);
+    color: white;
+    border-radius: 15px 0 0 0;
+    padding: 10px 0 5px 10px;
+}
+
+.note{
+    border-bottom: 3px solid;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    
+    .print-container,
+    .print-container * {
+      visibility: visible;
+    }
+
+  }

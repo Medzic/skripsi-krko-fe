@@ -51,7 +51,7 @@ const TabelPengajuan = () => {
                 <Table className='position-relative' striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th>Id</th>
                             <th>Nama Pemohon</th>
                             <th>Aksi</th>
                         </tr>
@@ -59,7 +59,7 @@ const TabelPengajuan = () => {
                     <tbody>
                         {data.map((item, index) => (
                             <tr key={index}>
-                                <td>{index + 1} </td>
+                                <td>{item.id} </td>
                                 <td>{item.namep}</td>
                                 <td>
                                     <ButtonLihatPengajuan onSuccess={item.id} />

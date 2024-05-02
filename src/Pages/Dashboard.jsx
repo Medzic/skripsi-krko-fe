@@ -4,9 +4,9 @@ import CardR from '../Component/CardR'
 import CardA from '../Component/CardA'
 import CardP from '../Component/CardP'
 import { ArsipButton } from '../Component/ArsipButton'
-// import NavigationBar from '../Component/NavigationBar'
 import { TokenFalseRedirect } from './TokenRedirect'
 import ConditionBar from './ConditionBar'
+import { Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
 
@@ -25,6 +25,8 @@ const Dashboard = () => {
       <div className='card-deck-arsip'>
         <ArsipButton />
       </div>
+
+      <Outlet />
     </>
   )
 }

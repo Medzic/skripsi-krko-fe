@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import Button from 'react-bootstrap/Button'
 
 
-const ButtonEditLokasi = ({ onSuccess }) => {
+const ButtonEditLokasi = ({ onSuccess, onText }) => {
     const [apiSuccess, setApiSuccess] = useState(false);
 
 
@@ -216,9 +216,11 @@ const ButtonEditLokasi = ({ onSuccess }) => {
         }
     }, [apiSuccess]);
 
+    const Text = 'Edit'
+
     return (
-        <Button onClick={fetchLokasi}>
-            Edit
+        <Button variant='warning' onClick={fetchLokasi}>
+            {onText ? onText:Text}
         </Button>
     )
 }

@@ -101,7 +101,7 @@ const ButtonLihatLokasi = ({ onSuccess }) => {
     };
 
     return (
-        <Button onClick={fetchLokasi}>
+        <Button style={{ marginRight: '10px'  }} variant='success' onClick={fetchLokasi}>
             Lihat
         </Button>
     )

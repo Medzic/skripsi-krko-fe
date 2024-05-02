@@ -87,7 +87,7 @@ const ButtonHapusBerkas = ({ onSuccess }) => {
     }, [apiSuccess]);
 
     return (
-        <Button onClick={hapusBerkas}>
+        <Button style={{ marginRight: '10px'  }} variant='danger' onClick={hapusBerkas}>
             Hapus
         </Button>
     )

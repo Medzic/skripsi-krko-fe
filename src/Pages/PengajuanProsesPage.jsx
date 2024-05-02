@@ -7,12 +7,12 @@ import './PengajuanPage.css'
 const PengajuanProsesPage = () => {
     return (
         <>
-        <IsAdminToken/>
+            <IsAdminToken />
             <TokenFalseRedirect />
             <ConditionBar />
             <div className="tabel-css">
                 <h1>
-                    <TabelPengajuanProses/>
+                    <TabelPengajuanProses />
                 </h1>
             </div>
         </>

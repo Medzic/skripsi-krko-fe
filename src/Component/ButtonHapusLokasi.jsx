@@ -87,7 +87,7 @@ const ButtonHapusLokasi = ({ onSuccess }) => {
     }, [apiSuccess]);
 
     return (
-        <Button onClick={hapusLokasi}>
+        <Button style={{ marginLeft: '10px'  }} variant='danger' onClick={hapusLokasi}>
             Hapus
         </Button>
     )

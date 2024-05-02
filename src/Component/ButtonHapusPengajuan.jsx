@@ -86,7 +86,7 @@ const ButtonHapusPengajuan = ({ onSuccess }) => {
     }, [apiSuccess]);
 
     return (
-        <Button onClick={hapusPengajuan}>
+        <Button style={{ marginLeft: '10px'  }} variant='danger' onClick={hapusPengajuan}>
             Hapus
         </Button>
     )

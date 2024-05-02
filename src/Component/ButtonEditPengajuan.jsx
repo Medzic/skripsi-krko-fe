@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import Button from 'react-bootstrap/Button'
 
 
-const ButtonEditPengajuan = ({ onSuccess }) => {
+const ButtonEditPengajuan = ({ onSuccess, onText }) => {
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const fetchPengajuan = async () => {
@@ -210,9 +210,11 @@ const ButtonEditPengajuan = ({ onSuccess }) => {
         }
     }, [apiSuccess]);
 
+    const Text = 'Edit'
+
     return (
-        <Button onClick={fetchPengajuan}>
-            Edit
+        <Button variant='warning' onClick={fetchPengajuan}>
+            {onText ? onText:Text}
         </Button>
     )
 }

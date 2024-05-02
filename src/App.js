@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import AuthPage from './Pages/AuthPage';
-import NotFoundPage from './Pages/NotFoundPage';
 import Footer from './Component/Footer';
 import PengajuanPage from './Pages/PengajuanPage';
 import LokasiPage from './Pages/LokasiPage';
@@ -13,27 +12,34 @@ import DashboardAdmin from './Pages/DashboardAdmin';
 import PengajuanProsesPage from './Pages/PengajuanProsesPage';
 import PengajuanAccPage from './Pages/PengajuanAccPage';
 import ArsipAdminPage from './Pages/ArsipAdminPage';
-import PengajuanProsesIdPage from './Pages/PengajuanProsesIdPage';
+import PengajuanRejectPage from './Pages/PengajuanRejectPage'
+import NotFoundPage from './Pages/NotFoundPage';
+import PengajuanTerimaPage from './Pages/PengajuanTerimaPage';
+import PrintedPage from './Pages/PrintedPage';
 
 function App() {
 
   return (
-    <> 
-      <div className='PageWrapper'>          
+    <>
+      <div className='PageWrapper'>
         <Router>
           <Routes>
-            <Route path='/' element={<AuthPage />} />             
-            <Route path='/Dashboard' element={<Dashboard />} />
+            <Route path='/' element={<AuthPage />} />
+            <Route path='/Dashboard/' element={<Dashboard />} />
+            <Route path='/Pengajuan-Ditolak' element={<PengajuanRejectPage />} />
+            <Route path='/Pengajuan-Diterima' element={<PengajuanTerimaPage />} />
+
             <Route path='/Dashboard-Admin' element={<DashboardAdmin />} />
             <Route path='/Pengajuan' element={<PengajuanPage />} />
             <Route path='/Pengajuan-Proses' element={<PengajuanProsesPage />} />
-            <Route path='/Pengajuan-Proses/Proses-Acc' element={<PengajuanProsesIdPage />} />
             <Route path='/Pengajuan-Acc' element={<PengajuanAccPage />} />
+
             <Route path='/Lokasi' element={<LokasiPage />} />
             <Route path='/Berkas' element={<BerkasPage />} />
             <Route path='/About' element={<AboutPage />} />
             <Route path='/Administrator' element={<AuthAdminPage />} />
             <Route path='/Arsip-Administrator' element={<ArsipAdminPage />} />
+            <Route path='/Print/:id' element={<PrintedPage />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </Router>
