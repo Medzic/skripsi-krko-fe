@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import './Auth.css'
+import { AtSign, User } from 'lucide-react';
 
 const AuthAdmin = () => {
     const [nama, setNama] = useState('');
@@ -51,8 +52,10 @@ const AuthAdmin = () => {
         <div className='Auth-Wrapper'>
             <h3 className="Auth-Title">Login Admin</h3>
             <p className="Auth-Subtitle">Silahkan masukkan data diri anda</p>
-            <div className='form'>
-                <form onSubmit={handleLogin}>
+
+            <form onSubmit={handleLogin}>
+                <div className="form">
+                    <User/>
                     <input
                         type="nama"
                         id="nama"
@@ -61,6 +64,7 @@ const AuthAdmin = () => {
                         value={nama}
                         onChange={(e) => setNama(e.target.value)}
                     />
+                    <AtSign/>
                     <input
                         type="password"
                         id="password"
@@ -69,9 +73,11 @@ const AuthAdmin = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button className='form-button' type="submit">Masuk</button>
-                </form>
-            </div>
+                </div>
+
+                <button className='form-button' type="submit">Masuk</button>
+            </form>
+
         </div>
 
 

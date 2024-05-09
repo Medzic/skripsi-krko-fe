@@ -7,9 +7,6 @@ import Button from 'react-bootstrap/Button'
 const ButtonEditLokasi = ({ onSuccess, onText }) => {
     const [apiSuccess, setApiSuccess] = useState(false);
 
-
-
-
     const fetchLokasi = async () => {
         try {
             // ambil token dari cookie
@@ -26,6 +23,8 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
             const specifiedLokasiData = responseSpecified.data;
             const responseAll = await axios.get('http://localhost:3000/pengajuan', config)
             const allPengajuanData = responseAll.data;
+
+            console.log('datanya gan: ', specifiedLokasiData);
 
 
             Swal.fire({
@@ -77,7 +76,7 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
             return '<p>No Pengajuan data available</p>';
         }
 
-        const filterData = ((data) => data.id !== lokasiData.Pengajuan.id)
+        const filterData = ((data) => data.id !== lokasiData.Pengajuan.id && data.Lokasi === null)
 
 
         // Format Lokasi data as needed
@@ -90,8 +89,7 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                             
                                 <option value='${lokasiData.Pengajuan.id}' >${lokasiData.Pengajuan.namep}</option>
                                 ${allPengajuan.filter(filterData).map(item =>
-                                    item.id !== lokasiData.Pengajuan.id ? 
-                                    `<option value="${item.id}">${item.namep}</option>` : ''
+                                    `<option value="${item.id}">${item.namep}</option>`
                                 ).join('')}
                             </select>
                         </td>

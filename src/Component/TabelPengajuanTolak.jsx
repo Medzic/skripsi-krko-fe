@@ -39,14 +39,14 @@ const TabelPengajuanTolak = () => {
     <>
       {isLoading ? (
         <TabelPengajuanSkeleton />
-      ) : data.length === 0 ? (
+      ) : data.length === 0  ? (
         <div>
           Data Tidak Ditemukan
         </div>
       ) : (
         <>
           {data
-            .filter(pengajuan => pengajuan.notes && pengajuan.noreg === null)
+            .filter(pengajuan => pengajuan.notes !== null)
             .map((item, index) => (
               <div key={index} className='card-user-container'>
                 <div className="header-rejected-card">
@@ -68,7 +68,7 @@ const TabelPengajuanTolak = () => {
                   <div className='card-btn'>
                     <Button>Ajukan Kembali</Button>
                     <ButtonEditPengajuan onSuccess={item.id} onText={'Edit Pengajuan'}/>
-                    <ButtonEditLokasi onSuccess={item.id} onText={'Edit Lokasi'}/>
+                    <ButtonEditLokasi onSuccess={item.Lokasi.id} onText={'Edit Lokasi'}/>
                     <Button variant='warning' onClick={() => navigate('/berkas')}>Edit Berkas</Button>
                   </div>
                 </div>

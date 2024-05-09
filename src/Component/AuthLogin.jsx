@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import './Auth.css'
+import { AtSign, KeyRound } from 'lucide-react'
 
 
 export const AuthLogin = ({ onLogin, onError }) => {
@@ -31,8 +32,9 @@ export const AuthLogin = ({ onLogin, onError }) => {
 
 
     return (
-        <>
-            <form onSubmit={handleLogin}>
+        <form  onSubmit={handleLogin}>
+            <div className='form'>
+                <AtSign/>
                 <input
                     type="email"
                     id="email"
@@ -41,6 +43,7 @@ export const AuthLogin = ({ onLogin, onError }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                <KeyRound/>
                 <input
                     type="password"
                     id="password"
@@ -49,9 +52,10 @@ export const AuthLogin = ({ onLogin, onError }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className='form-button' type="submit">Masuk</button>
-            </form>
+            </div>
+            <button className='form-button' type="submit">Masuk</button>
+        </form>
 
-        </>
+
     )
 }

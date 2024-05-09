@@ -32,7 +32,6 @@ const Auth = ({ onError }) => {
 
   return (
     <div className='Auth-Wrapper'>
-      <div className="Auth-Title">PUPR</div>
       <Nav className="Auth-Switch">
         <Nav.Link
           onClick={() => setFormType('login')}
@@ -47,9 +46,9 @@ const Auth = ({ onError }) => {
           Daftar
         </Nav.Link>
       </Nav>
-      <div className="Auth-Subtitle">Silahkan masukkan data diri anda</div>
+      <div className="Auth-Subtitle"></div>
       {/* call the component here */}
-      <div className='form'>
+      <div >
         {formType === 'login' ? <AuthLogin onLogin={handleLogin} onError={onError} /> : <AuthRegister onLogin={handleRegister} onError={onError} />}
       </div>
     </div>

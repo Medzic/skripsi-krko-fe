@@ -65,9 +65,12 @@ const TabelLokasi = () => {
                             <td>{item.id} </td>
                             <td>{item.namep}</td>
                             <td>{item.Lokasi?.loktanah}</td>
-                            <td style={{ verticalAlign: 'middle' }}>
-                                <ButtonLihatLokasi onSuccess={item.Lokasi?.id} className="lihat"/>
+                            <td className='tabel-btn'>
+                                
+                                <ButtonLihatLokasi onSuccess={item.Lokasi?.id}/>
+                                
                                 <ButtonEditLokasi onSuccess={item.Lokasi?.id}/>
+                                
                                 <ButtonHapusLokasi onSuccess={item.Lokasi?.id}/>
                             </td>
                         </tr>))}

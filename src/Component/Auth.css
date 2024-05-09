@@ -1,40 +1,41 @@
 .Auth-Wrapper {
     width: 380px;
-    background-color: white;
+    background-color: #ffffff;
     color: black;
-    height: 450px;
     justify-content: center;
     align-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.301), inset -6px -6px 10px 0 rgba(0, 0, 0, 0.322);
+    padding: 20px;
 }
 
-.Auth-Title {
-    position: relative;
-    top: 0;
-    width: 100%;
-}
 
 .Auth-Switch {
     position: relative;
     width: 100%;
+    max-width: fit-content;
     justify-content: center;
     align-items: center;
     height: 50px;
     margin-bottom: 50px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 
 }
 
 .Auth-Switch .nav-link.active {
     color: black;
     border-bottom: 3px solid #FFC413;
+    box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
 }
 
 .Auth-Switch .nav-link {
     color: black;
+
 }
 
 .Auth-Switch .nav-link:hover {
@@ -49,27 +50,39 @@
 }
 
 .form {
-    position: relative;
-    height: 100px;
     align-items: center;
-    height: 60%;
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0px 20px 0px 20px;
+    padding: 0 0 10px 0;
 }
 
 .form-input {
-    margin-bottom: 10px;
-    width: 70%;
+    margin: 10px;
+    width: 80%;
     padding: 5px;
     border: none;
+    background-color: #ffffff;
     border-bottom: 2px solid #FFC413;
+    
+
+
 }
 
 .form-button {
-    margin-top: 10px;
     position: relative;
     width: 50%;
     border-radius: 10px;
     border: none;
-    padding-top: 5px;
+    margin: 20px 0 0 0;
     height: 40px;
     background-color: #FFC413;
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+
+}
+
+.lucide{
+    color: rgba(0, 0, 0, 0.507);
 }

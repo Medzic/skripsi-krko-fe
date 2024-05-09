@@ -1,120 +1,83 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Table from 'react-bootstrap/Table';
+import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import './TabelPengajuan.css'
-import TabelPengajuanProsesSkeleton from './Skeleton/TabelPengajuanProsesSkeleton';
-import ButtonPengajuanProses from './ButtonPengajuanProses';
+import ButtonLihatPengajuan from './ButtonLihatPengajuan';
 
 const TabelPengajuanProses = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-  const fetchAllData = async () => {
-    try {
-      // ambil token dari cookie
-      const token = document.cookie.replace(/(?:^|.*;\s*)token\s*=\s*([^;]*).*$|^.*$/, "$1");
-      //set cookie as header
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`
+
+
+    const fetchPengajuan = async () => {
+        try {
+            // ambil token dari cookie
+            const token = document.cookie.replace(/(?:^|.*;\s*)token\s*=\s*([^;]*).*$|^.*$/, "$1");
+            //set cookie as header
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            };
+
+            const response = await axios.get('http://localhost:3000/pengajuan', config)
+            setData(response.data);
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
         }
-      };
-      const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
-      setData(response.data);
-
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
     }
-  }
-
-  useEffect(() => {
-    fetchAllData();
-  }, [])
-
-
-
-  return (
-    <>
-      {isLoading ? (
-        <TabelPengajuanProsesSkeleton />
-      ) : data.length === 0 ? (
-        <Table className='position-relative' striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>
-                Data Tidak Ditemukan
-              </th>
-            </tr>
-          </thead>
-        </Table>
-      ) : (
+    useEffect(() => {
+        fetchPengajuan();
+    }, [])
+    return (
         <>
-          {data.map((item, index) => (
-            <div key={index} className='card-container'>
-              <div className='card-user'>
-                <h3>{item.nama}</h3>
-                <h3>{item.email}</h3>
-                <h3>{item.telp}</h3>
-                <h3>{item.alamat}</h3>
-              </div>
+            {isLoading ? (
+                <TabelPengajuanSkeleton />
+            ) : (
+                <>
+                    {data
+                        .filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null)
+                        .map((item, index) => (
+                            <div key={index} className='card-user-container'>
+                                <div className="print-container">
+                                    <div className="header-proc-card">
+                                        <h1>Pengajuan Diproses</h1>
+                                    </div>
 
-              {item.Pengajuans.length === 0 ? (
-                <div className='tabel-pengajuan'>data tidak ditemukan</div>
-              ) : (
-                <Dropdown data={item.Pengajuans} />
+                                    <div className="item-container">
+                                        <div className='card-user-item'>
+                                            <h3>PId: {item.id}</h3>
+                                            <h3>Pemohon: {item.namep}</h3>
+                                            <h3>No Registrasi: {item.noreg}</h3>
+                                            <div>
+                                                <h5>Catatan: </h5>
+                                                <div className="note"></div>
+                                                <p>Pengajuan anda sedang di proses, Silahkan tunggu telepon dari admin</p>
+                                            </div>
 
-              )}
-            </div>
-          ))}
+                                        </div>
+
+                                        <div className='card-btn'>
+                                            <ButtonLihatPengajuan onSuccess={item.id}/>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        ))}
+                </>
+            )}
+            {!isLoading && data.filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null).length === 0 && (
+                <div>
+                    Data Tidak Ditemukan
+                </div>
+            )}
         </>
-      )}
-    </>
-  )
+    )
 }
-
-const Dropdown = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className="tabel-pengajuan" >
-      {data.filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null).length > 0 ?
-        (<button className="dropdown-button" onClick={toggleDropdown}>
-          Lihat Data
-        </button>) : (
-          <div className='tabel-pengajuan'>data tidak ditemukan</div>
-        )}
-
-      {isOpen && (
-        <Table className='tabel-pengajuan' striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nama Pemohon</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data
-              .filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null)
-              .map((filteredPengajuan, index) => (
-                <tr key={index}>
-                  <td>{filteredPengajuan.id}</td>
-                  <td>{filteredPengajuan.namep}</td>
-                  <td className='btn-proses'>
-                    <ButtonPengajuanProses dataId={filteredPengajuan.id} />
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </Table>
-      )}
-    </div>
-  );
-};
 
 export default TabelPengajuanProses

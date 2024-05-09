@@ -32,6 +32,13 @@ const Printed = ({ onSuccess }) => {
         window.print();
     };
 
+    useEffect(() => {
+        const printTimeout = setTimeout(() => {
+            handlePrint();
+        }, 1000); 
+    
+        return () => clearTimeout(printTimeout);    }, [])
+
     return (
         <>        
         {item && (

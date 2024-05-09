@@ -14,6 +14,17 @@ const NavigationBarAdmin = () => {
 
     const navigate = useNavigate();
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const navItems = document.querySelectorAll('.full-hover');
+    
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    });
+
     const exitDialog = () => {
         Swal.fire({
             title: "Anda Mau Keluar?",
@@ -79,7 +90,7 @@ const NavigationBarAdmin = () => {
                                     <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Profil</span>
                                     </NavLink>
-                                    <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                    <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'exit-btn'}`}>
                                         <span className='nav-text'>Keluar</span>
                                     </NavLink>
                                 </Nav>

@@ -39,7 +39,7 @@ const TabelPengajuanTerima = () => {
         <>
             {isLoading ? (
                 <TabelPengajuanSkeleton />
-            ) : data.length === 0 ? (
+            ) : data.filter(pengajuan => pengajuan.noreg === null).length === 0 ? (
                 <div>
                     Data Tidak Ditemukan
                 </div>

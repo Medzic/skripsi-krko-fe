@@ -61,7 +61,7 @@ const TabelPengajuan = () => {
                             <tr key={index}>
                                 <td>{item.id} </td>
                                 <td>{item.namep}</td>
-                                <td>
+                                <td className='tabel-btn'>
                                     <ButtonLihatPengajuan onSuccess={item.id} />
                                     <ButtonEditPengajuan onSuccess={item.id}/>
                                     <ButtonHapusPengajuan onSuccess={item.id} />

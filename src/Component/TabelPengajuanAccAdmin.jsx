@@ -2,7 +2,7 @@ import React from 'react';
 import './TabelPengajuan.css'
 
 
-const TabelPengajuanAcc = () => {
+const TabelPengajuanAccAdmin = () => {
    
   return (
     <div className='position-relative' size="sm">
@@ -11,4 +11,4 @@ const TabelPengajuanAcc = () => {
   )
 }
 
-export default TabelPengajuanAcc
+export default TabelPengajuanAccAdmin

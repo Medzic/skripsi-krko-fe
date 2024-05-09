@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import'./Auth.css'
+import './Auth.css'
+import { AtSign, KeyRound, MapPin, Phone, User } from 'lucide-react';
 
 
 
@@ -15,22 +16,24 @@ export const AuthRegister = ({ onLogin, onError }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:3000/register', {
-            nama: username,
-            email: email,
-            telp: telp,
-            alamat: alamat,
-            password: password
-        });
+      await axios.post('http://localhost:3000/register', {
+        nama: username,
+        email: email,
+        telp: telp,
+        alamat: alamat,
+        password: password
+      });
 
-        onLogin();
+      onLogin();
     } catch (error) {
-        onError(error);
+      onError(error);
     }
-};
+  };
 
   return (
-      <form onSubmit={handleRegister}>
+    <form onSubmit={handleRegister}>
+      <div className='form'>
+        <User />
         <input
           type='text'
           id='username'
@@ -39,6 +42,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <AtSign />
         <input
           type="email"
           id="email"
@@ -47,8 +51,8 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        
-        
+
+        <Phone />
         <input
           type='number'
           id='telp'
@@ -57,6 +61,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={telp}
           onChange={(e) => setTelp(e.target.value)}
         />
+        <MapPin/>
         <input
           type='text'
           id='alamat'
@@ -65,6 +70,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={alamat}
           onChange={(e) => setAlamat(e.target.value)}
         />
+        <KeyRound/>
         <input
           type="password"
           id="password"
@@ -73,7 +79,8 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className='form-button' type="submit">Daftar</button>
-      </form>
+      </div>
+      <button className='form-button' type="submit">Daftar</button>
+    </form>
   )
 }

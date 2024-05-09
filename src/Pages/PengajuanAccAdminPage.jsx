@@ -1,19 +1,19 @@
 import React from 'react'
 import { IsAdminToken, TokenFalseRedirect } from './TokenRedirect'
 import ConditionBar from './ConditionBar'
-import TabelPengajuanAcc from '../Component/TabelPengajuanAcc'
+import TabelPengajuanAccAdmin from '../Component/TabelPengajuanAccAdmin'
 
-const PengajuanAccPage = () => {
+const PengajuanAccAdminPage = () => {
     return (
         <>
             <IsAdminToken />
             <TokenFalseRedirect />
             <ConditionBar />
             <div className="tabel-css">
-                <TabelPengajuanAcc/>
+                <TabelPengajuanAccAdmin/>
             </div>
         </>
     )
 }
 
-export default PengajuanAccPage
+export default PengajuanAccAdminPage

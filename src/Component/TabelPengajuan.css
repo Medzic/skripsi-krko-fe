@@ -11,7 +11,7 @@
 .card-container {
     position: relative;
     background: white;
-    margin: 20px 0 20px ;
+    margin: 20px 0 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
     color: black;
@@ -37,7 +37,7 @@
     background: none;
 }
 
-.btn-proses{
+.btn-proses {
     text-align: center;
 }
 
@@ -50,6 +50,7 @@
     color: black;
     margin-bottom: 20px;
 }
+
 .print-user-container {
     display: block;
     position: relative;
@@ -60,7 +61,7 @@
     margin: 30px;
 }
 
-.item-container{
+.item-container {
     display: grid;
     grid-template-columns: auto 30%;
 }
@@ -74,7 +75,7 @@
 
 }
 
-.card-btn{
+.card-btn {
     display: flex;
     gap: 10px;
     padding: 10px;
@@ -82,32 +83,48 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
-.header-rejected-card{
+.header-rejected-card {
     background: linear-gradient(144deg, #FF0000, #FFFFFF);
     color: white;
     border-radius: 15px 0 0 0;
     padding: 10px 0 5px 10px;
 }
-.header-acc-card{
+
+.header-acc-card {
     background: linear-gradient(144deg, #025206, #FFFFFF);
     color: white;
     border-radius: 15px 0 0 0;
     padding: 10px 0 5px 10px;
 }
 
-.note{
+.header-proc-card {
+    background: linear-gradient(144deg, #8b9b01, #FFFFFF);
+    color: white;
+    border-radius: 15px 0 0 0;
+    padding: 10px 0 5px 10px;
+}
+
+.note {
     border-bottom: 3px solid;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.tabel-btn {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,
+            minmax(80px));
+    width: 100%;
+    gap: 5px;
+}
+
 @media print {
     body * {
-      visibility: hidden;
-    }
-    
-    .print-container,
-    .print-container * {
-      visibility: visible;
+        visibility: hidden;
     }
 
-  }
+    .print-container,
+    .print-container * {
+        visibility: visible;
+    }
+
+}

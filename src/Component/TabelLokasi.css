@@ -1,49 +1,37 @@
-.dropdown {
-    position: relative;
-    display: inline-block;
-    width: 80%; /* Set width to 80% of the screen */
-   
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+  overflow: hidden;
+}
+
+
+
+/* Highlight table row on hover */
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.tabel-btn {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+      minmax(80px, 1fr));
+  width: 100%;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px){
+  .item-name{
+    max-width: 100px;
+    overflow: scroll;
   }
-  
-  /* Dropdown button */
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    width: 100%; /* Make button fill entire width of dropdown */
-    text-align: left; /* Align text to left */
-  }
-  
-  /* Dropdown content */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%; /* Make dropdown content fill entire width of dropdown container */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Show dropdown content on button click */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Table styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  /* Highlight table row on hover */
-  tr:hover {
-    background-color: #f5f5f5;
-  }
+}

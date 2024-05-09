@@ -35,7 +35,7 @@ const TabelBerkas = () => {
     }, [])
 
     return (
-        <div>
+        <div >
             {isLoading ? (
                 <TabelBerkasSkeleton />
             ) : data.length === 0 ? (
@@ -49,7 +49,7 @@ const TabelBerkas = () => {
                     </thead>
                 </Table>
             ) : (
-                <Table className='position-relative' striped bordered hover size="sm">
+                <Table  striped bordered hover size="sm">
                     <thead>
                         <tr>
                             <th>PId</th>
@@ -62,7 +62,7 @@ const TabelBerkas = () => {
                         data.map((item, index) => (
                             <tr key={index}>
                                 <td>{item.pengajuanId} </td>
-                                <td>{item.name}</td>
+                                <td className='item-name'>{item.name}</td>
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>
                                     <ButtonEditBerkas onSuccess={item.id} />
