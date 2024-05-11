@@ -35,7 +35,7 @@ const Printed = ({ onSuccess }) => {
     useEffect(() => {
         const printTimeout = setTimeout(() => {
             handlePrint();
-        }, 1000); 
+        }, 3000); 
     
         return () => clearTimeout(printTimeout);    }, [])
 

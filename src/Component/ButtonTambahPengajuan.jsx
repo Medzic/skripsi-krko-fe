@@ -72,8 +72,33 @@ const ButtonTambahPengajuan = () => {
                         <td>: 
                             <select id='kelurahan' style='width: 90%; border: none; border-bottom: 2px solid;'>
                                 <option value=''>Masukkan Kelurahan</option>
-                                <option value='kelurahan1'>Kelurahan 1</option>
-                                <option value='kelurahan2'>Kelurahan 2</option>
+                                <option value='Cabawan'>Cabawan</option>
+                                <option value='Kaligangsa'>Kaligangsa</option>
+                                <option value='Kalinyamat Kulon'>Kalinyamat Kulon</option>
+                                <option value='Kradon'>Kradon</option>
+                                <option value='Margadana'>Margadana</option>
+                                <option value='Pesurungan Lor'>Pesurungan Lor</option>
+                                <option value='Sumurpanggang'>Sumurpanggang</option>
+                                <option value='Debong Lor'>Debong Lor</option>
+                                <option value='Kemandungan'>Kemandungan</option>
+                                <option value='Kraton'>Kraton</option>
+                                <option value='Muarareja'>Muarareja</option>
+                                <option value='Pekauman'>Pekauman</option>
+                                <option value='Pesurungan Kidul'>Pesurungan Kidul</option>
+                                <option value='Tegalsari'>Tegalsari</option>
+                                <option value='Bandung'>Bandung</option>
+                                <option value='Debong Kidul'>Debong Kidul</option>
+                                <option value='Debong Kulon'>Debong Kulon</option>
+                                <option value='Debong Tengah'>Debong Tengah</option>
+                                <option value='Kalinyamat Wetan'>Kalinyamat Wetan</option>
+                                <option value='Keturen'>Keturen</option>
+                                <option value='Randugunting'>Randugunting</option>
+                                <option value='Tunon'>Tunon</option>
+                                <option value='Kejambon'>Kejambon</option>
+                                <option value='Mangkukusuman'>Mangkukusuman</option>
+                                <option value='Mintaragen'>Mintaragen</option>
+                                <option value='Panggung'>Panggung</option>
+                                <option value='Slerok'>Slerok</option>
 
                             </select>
                         </td>

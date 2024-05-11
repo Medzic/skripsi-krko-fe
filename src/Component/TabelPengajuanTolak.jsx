@@ -39,14 +39,10 @@ const TabelPengajuanTolak = () => {
     <>
       {isLoading ? (
         <TabelPengajuanSkeleton />
-      ) : data.length === 0  ? (
-        <div>
-          Data Tidak Ditemukan
-        </div>
-      ) : (
+      ) : data.filter(pengajuan => pengajuan.notes).length > 0 ? (
         <>
           {data
-            .filter(pengajuan => pengajuan.notes !== null)
+            .filter(pengajuan => pengajuan.notes)
             .map((item, index) => (
               <div key={index} className='card-user-container'>
                 <div className="header-rejected-card">
@@ -76,6 +72,10 @@ const TabelPengajuanTolak = () => {
               </div>
             ))}
         </>
+      ) : (
+        <div>
+          Data Tidak Ditemukan
+        </div>
       )}
     </>
   )

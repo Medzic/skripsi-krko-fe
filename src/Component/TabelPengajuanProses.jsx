@@ -35,10 +35,10 @@ const TabelPengajuanProses = () => {
         <>
             {isLoading ? (
                 <TabelPengajuanSkeleton />
-            ) : (
+            ) : data.filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0).length > 0 ? (
                 <>
                     {data
-                        .filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null)
+                        .filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0)
                         .map((item, index) => (
                             <div key={index} className='card-user-container'>
                                 <div className="print-container">
@@ -70,12 +70,12 @@ const TabelPengajuanProses = () => {
                             </div>
                         ))}
                 </>
-            )}
-            {!isLoading && data.filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null).length === 0 && (
+            ) : (
                 <div>
                     Data Tidak Ditemukan
                 </div>
             )}
+            
         </>
     )
 }

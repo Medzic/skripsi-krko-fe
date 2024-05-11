@@ -39,12 +39,10 @@ const ButtonPengajuanProses = ({ dataId }) => {
             
                     // Custom validation logic
                     if (noreg && notes) {
-                        // If noreg is empty but notes is filled, show an error message
                         Swal.showValidationMessage('Jika sudah mengisi nomor registrasi, catatan tidak boleh diisi. begitupula sebaliknya');
                         return false;
                     }
             
-                    // Return the values if validation passes
                     return [noreg, notes];
                 }
             }).then((result) => {

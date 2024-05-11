@@ -8,12 +8,13 @@ import axios from 'axios';
 const ButtonTambahBerkas = () => {
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
+    const [data, setData] = useState([]);
+
+    const maxSize = 2 * 1024 * 1024;
 
     const buttonSpring = useSpring({
         transform: clicked ? 'scale(0.95)' : 'scale(1)' // Apply scaling based on click state
     });
-
-    const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchPengajuan = async () => {
@@ -48,7 +49,16 @@ const ButtonTambahBerkas = () => {
             cancelButtonText: 'Batal',
             preConfirm: async () => {
                 const pengajuanId = document.getElementById('pengajuanId').value;
-                const files = document.getElementById('files').files[0]; 
+                const files = document.getElementById('files').files[0];
+                // Custom validation logic
+                if (!files || files.type !== 'application/pdf') {
+                    Swal.showValidationMessage('Berkas Harus bertipe PDF');
+                    return false;
+                } 
+                if (files.size > maxSize) {
+                    Swal.showValidationMessage('Berkas harus kurang dari 2MB');
+                    return false;
+                } 
                 return [pengajuanId, files];
             }
         }).then((result) => {
