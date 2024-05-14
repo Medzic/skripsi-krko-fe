@@ -34,7 +34,7 @@ const CardA = () => {
 
         <button onClick={() => navigate('/Pengajuan-Diterima')} className='buttonA'>
             <h1>Di Terima</h1>
-            <h1>{data.filter(pengajuan => pengajuan.noreg).length}</h1>
+            <h1>{data.filter(pengajuan => pengajuan.noreg && pengajuan.arsip === false).length}</h1>
         </button>
 
     )

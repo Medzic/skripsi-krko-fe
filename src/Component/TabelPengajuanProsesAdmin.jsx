@@ -82,7 +82,7 @@ const Dropdown = ({ data }) => {
 
   return (
     <div className="tabel-pengajuan" >
-      {data.filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null).length > 0 ?
+      {data.filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null && pengajuan.notes === null).length > 0 ?
         (<button className="dropdown-button" onClick={toggleDropdown}>
           Lihat Data
         </button>) : (
@@ -93,17 +93,17 @@ const Dropdown = ({ data }) => {
         <Table className='tabel-pengajuan' striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Id</th>
+              <th>No</th>
               <th>Nama Pemohon</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             {data
-              .filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null)
+              .filter(pengajuan => pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0 && pengajuan.noreg === null && pengajuan.notes === null)
               .map((filteredPengajuan, index) => (
                 <tr key={index}>
-                  <td>{filteredPengajuan.id}</td>
+                  <td>{index + 1}</td>
                   <td>{filteredPengajuan.namep}</td>
                   <td className='btn-proses'>
                     <ButtonPengajuanProses dataId={filteredPengajuan.id} />

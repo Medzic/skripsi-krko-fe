@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import './Auth.css'
-import { AtSign, KeyRound, MapPin, Phone, User } from 'lucide-react';
+import { AtSign, BookUser, KeyRound, MapPin, Phone, User } from 'lucide-react';
 
 
 
 export const AuthRegister = ({ onLogin, onError }) => {
 
   const [email, setEmail] = useState('');
+  const [nik, setNik] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [telp, setTelp] = useState('');
@@ -18,6 +19,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
     try {
       await axios.post('http://localhost:3000/register', {
         nama: username,
+        nik: nik,
         email: email,
         telp: telp,
         alamat: alamat,
@@ -33,6 +35,15 @@ export const AuthRegister = ({ onLogin, onError }) => {
   return (
     <form onSubmit={handleRegister}>
       <div className='form'>
+        <BookUser />
+        <input
+          type='number'
+          id='nik'
+          placeholder='NIK'
+          className='form-input'
+          value={nik}
+          onChange={(e) => setNik(e.target.value)}
+        />
         <User />
         <input
           type='text'

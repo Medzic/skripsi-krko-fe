@@ -20,10 +20,7 @@ tr:hover {
 }
 
 .tabel-btn {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,
-      minmax(80px, 1fr));
-  width: 100%;
+  display: flex;
   gap: 5px;
   align-items: center;
   justify-content: center;
@@ -33,5 +30,12 @@ tr:hover {
   .item-name{
     max-width: 100px;
     overflow: scroll;
+  }
+  .tabel-btn {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }

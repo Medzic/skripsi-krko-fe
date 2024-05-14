@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import ButtonEditPengajuan from './ButtonEditPengajuan';
 import ButtonEditLokasi from './ButtonEditLokasi';
 import { useNavigate } from 'react-router-dom';
+import ButtonReconfirm from './ButtonReconfirm';
 
 const TabelPengajuanTolak = () => {
   const [data, setData] = useState([]);
@@ -62,7 +63,8 @@ const TabelPengajuanTolak = () => {
                   </div>
 
                   <div className='card-btn'>
-                    <Button>Ajukan Kembali</Button>
+                    {/* mulai dari sini */}
+                    <ButtonReconfirm onSuccess={item.id}/>
                     <ButtonEditPengajuan onSuccess={item.id} onText={'Edit Pengajuan'}/>
                     <ButtonEditLokasi onSuccess={item.Lokasi.id} onText={'Edit Lokasi'}/>
                     <Button variant='warning' onClick={() => navigate('/berkas')}>Edit Berkas</Button>

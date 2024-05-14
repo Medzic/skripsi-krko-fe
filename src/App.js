@@ -9,7 +9,6 @@ import './App.css';
 import AboutPage from './Pages/AboutPage';
 import AuthAdminPage from './Pages/AuthAdminPage';
 import DashboardAdmin from './Pages/DashboardAdmin';
-import ArsipAdminPage from './Pages/ArsipAdminPage';
 import PengajuanRejectPage from './Pages/PengajuanRejectPage'
 import NotFoundPage from './Pages/NotFoundPage';
 import PengajuanTerimaPage from './Pages/PengajuanTerimaPage';
@@ -17,6 +16,7 @@ import PrintedPage from './Pages/PrintedPage';
 import PengajuanAccAdminPage from './Pages/PengajuanAccAdminPage';
 import PengajuanProsesAdminPage from './Pages/PengajuanProsesAdminPage';
 import PengajuanProsesPage from './Pages/PengajuanProsesPage';
+import ArsipPage from './Pages/ArsipPage';
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
             <Route path='/Lokasi' element={<LokasiPage />} />
             <Route path='/Berkas' element={<BerkasPage />} />
             
-            <Route path='/Arsip-Administrator' element={<ArsipAdminPage />} />
+            <Route path='/Arsip' element={<ArsipPage />} />
             <Route path='/About' element={<AboutPage />} />
             <Route path='/Print/:id' element={<PrintedPage />} />
             <Route path='*' element={<NotFoundPage />} />

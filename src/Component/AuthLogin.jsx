@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import './Auth.css'
-import { AtSign, KeyRound } from 'lucide-react'
+import { BookUser, KeyRound } from 'lucide-react'
 
 
 export const AuthLogin = ({ onLogin, onError }) => {
 
-    const [email, setEmail] = useState('');
+    const [nik, setNik] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/login', {
-                email: email,
+                nik: nik,
                 password: password
             });
             const { data } = response
@@ -34,14 +34,14 @@ export const AuthLogin = ({ onLogin, onError }) => {
     return (
         <form  onSubmit={handleLogin}>
             <div className='form'>
-                <AtSign/>
+                <BookUser/>
                 <input
-                    type="email"
-                    id="email"
-                    placeholder="Email"
+                    type="number"
+                    id="nik"
+                    placeholder="NIK"
                     className='form-input'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={nik}
+                    onChange={(e) => setNik(e.target.value)}
                 />
                 <KeyRound/>
                 <input

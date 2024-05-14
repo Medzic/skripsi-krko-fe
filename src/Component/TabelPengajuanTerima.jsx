@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import './TabelPengajuan.css'
 import { useNavigate } from 'react-router-dom';
+import ButtonArsipkan from './ButtonArsipkan';
 
 const TabelPengajuanTerima = () => {
     const [data, setData] = useState([]);
@@ -39,10 +40,10 @@ const TabelPengajuanTerima = () => {
         <>
             {isLoading ? (
                 <TabelPengajuanSkeleton />
-            ) : data.filter(pengajuan => pengajuan.noreg).length > 0 ? (
+            ) : data.filter(pengajuan => pengajuan.noreg && pengajuan.arsip === false).length > 0 ? (
                 <>
                     {data
-                        .filter(pengajuan => pengajuan.noreg)
+                        .filter(pengajuan => pengajuan.noreg && pengajuan.arsip === false)
                         .map((item, index) => (
                             <div key={index} className='card-user-container'>
                                 <div className="print-container">
@@ -66,7 +67,7 @@ const TabelPengajuanTerima = () => {
 
                                         <div className='card-btn'>
                                             <Button onClick={() => navigate(`/Print/${item.id}`)}>Cetak</Button>
-                                            <Button>Arsipkan</Button>
+                                            <ButtonArsipkan onSuccess={item.id}/>
 
                                         </div>
                                     </div>

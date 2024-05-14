@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import Table from 'react-bootstrap/Table';
-import axios from 'axios';
-import ButtonLihatPengajuan from './ButtonLihatPengajuan';
-import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
-import ButtonEditPengajuan from './ButtonEditPengajuan';
-import ButtonHapusPengajuan from './ButtonHapusPengajuan';
+import { Button, Table } from 'react-bootstrap'
 import './TabelPengajuan.css'
+import axios from 'axios';
+import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
+import ButtonLihatPengajuanDetail from './ButtonLihatPengajuanDetail';
+import { useNavigate } from 'react-router-dom';
 
-const TabelPengajuan = () => {
+const TabelArsip = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate()
 
     const fetchPengajuan = async () => {
         try {
@@ -25,6 +26,7 @@ const TabelPengajuan = () => {
             const response = await axios.get('http://localhost:3000/pengajuan', config)
             setData(response.data);
             setIsLoading(false);
+            console.log('response data:', response.data);
         } catch (error) {
             console.log(error);
         }
@@ -42,7 +44,7 @@ const TabelPengajuan = () => {
                     <thead>
                         <tr>
                             <th>
-                               Data Tidak Ditemukan
+                                Data Tidak Ditemukan
                             </th>
                         </tr>
                     </thead>
@@ -57,16 +59,23 @@ const TabelPengajuan = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((item, index) => (
-                            <tr key={index}>
-                                <td className='item-id'>{item.id} </td>
-                                <td>{item.namep}</td>
-                                <td className='tabel-btn'>
-                                    <ButtonLihatPengajuan onSuccess={item.id} />
-                                    <ButtonEditPengajuan onSuccess={item.id}/>
-                                    <ButtonHapusPengajuan onSuccess={item.id} />
-                                </td>
-                            </tr>))}
+                        {data.filter(item => item.arsip === true).length > 0 ? (
+                            data.filter(item => item.arsip === true).map((item, index) => (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{item.namep}</td>
+                                    <td className='tabel-btn'>
+                                        <Button onClick={() => navigate(`/Print/${item.id}`)}>Cetak</Button>
+
+                                        <ButtonLihatPengajuanDetail onSuccess={item.id} />
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="3">Data tidak ditemukan</td>
+                            </tr>
+                        )}
                     </tbody>
                 </Table>
             )}
@@ -74,4 +83,4 @@ const TabelPengajuan = () => {
     )
 }
 
-export default TabelPengajuan
+export default TabelArsip
