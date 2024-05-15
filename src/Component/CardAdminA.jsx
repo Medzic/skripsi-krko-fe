@@ -1,18 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Card.css'
-import { Nav } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const CardAdminA = () => {
+    const navigate = useNavigate();
+
+    const [data, setData] = useState([]);
+
+    const fetchAllData = async () => {
+      try {
+        // ambil token dari cookie
+        const token = document.cookie.replace(/(?:^|.*;\s*)token\s*=\s*([^;]*).*$|^.*$/, "$1");
+        //set cookie as header
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+        const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+        setData(response.data);
+  
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    const filteredData = data
+    .flatMap(user => user.Pengajuans) 
+    .filter(pengajuan => 
+      pengajuan.noreg
+    );
+  
+    useEffect(() => {
+      fetchAllData();
+    }, [])
     return (
-        <Nav>
-            <NavLink to='/Pengajuan-Acc'>
-                <button className='buttonA'>
-                    <h1>Di Terima</h1>
-                    <h1>0</h1>
-                </button>
-            </NavLink>
-        </Nav>
+        <button onClick={() => navigate('/pengajuan-acc')} className='buttonA '>
+            <h1>Di Terima</h1>
+            <h1>{filteredData.length }</h1>
+        </button>
 
     )
 }

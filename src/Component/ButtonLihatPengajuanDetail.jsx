@@ -24,7 +24,6 @@ const ButtonLihatPengajuanDetail = ({onSuccess}) => {
                 confirmButtonColor: '#00aa0e',
                 width: '80%',
             });
-            console.log(response.data);
         } catch (error) {
             console.log(error);
             Swal.fire({

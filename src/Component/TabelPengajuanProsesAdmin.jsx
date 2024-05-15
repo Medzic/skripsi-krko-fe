@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
-import './TabelPengajuan.css'
 import TabelPengajuanProsesSkeleton from './Skeleton/TabelPengajuanProsesSkeleton';
 import ButtonPengajuanProses from './ButtonPengajuanProses';
+import './TabelPengajuanAdmin.css'
+import { MailIcon, MapPin, PhoneIcon, User2Icon } from 'lucide-react';
 
 const TabelPengajuanProsesAdmin = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,10 +54,20 @@ const TabelPengajuanProsesAdmin = () => {
           {data.map((item, index) => (
             <div key={index} className='card-container'>
               <div className='card-user'>
+              <User2Icon/> 
                 <h3>{item.nama}</h3>
-                <h3>{item.email}</h3>
-                <h3>{item.telp}</h3>
-                <h3>{item.alamat}</h3>
+              </div>
+              <div className='card-user'>
+                <MailIcon/>
+                <h3>{item.email}</h3>              
+              </div>
+              <div className='card-user'>
+              <PhoneIcon/>
+                <h3>{item.telp}</h3>              
+              </div>
+              <div className='card-user'>
+                <MapPin/>
+                <h3>{item.alamat}</h3>              
               </div>
 
               {item.Pengajuans.length === 0 ? (

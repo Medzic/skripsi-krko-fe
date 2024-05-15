@@ -26,7 +26,6 @@ const TabelArsip = () => {
             const response = await axios.get('http://localhost:3000/pengajuan', config)
             setData(response.data);
             setIsLoading(false);
-            console.log('response data:', response.data);
         } catch (error) {
             console.log(error);
         }

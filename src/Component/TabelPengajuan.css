@@ -8,48 +8,6 @@
     border-radius: 5px;
 }
 
-.card-container {
-    position: relative;
-    background: white;
-    margin: 20px 0 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    color: black;
-
-}
-
-.card-user {
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-
-.tabel-pengajuan {
-    text-align: center;
-    background: #ffc413;
-    position: relative;
-    border-radius: 0 0 10px 10px;
-}
-
-.dropdown-button {
-    border: none;
-    background: none;
-}
-
-.btn-proses {
-    text-align: center;
-}
-
-.card-user-container {
-    display: block;
-    position: relative;
-    background: white;
-    border-radius: 15px 0 15px 0;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    color: black;
-    margin-bottom: 20px;
-}
-
 .print-user-container {
     display: block;
     position: relative;
