@@ -87,7 +87,7 @@ const NavigationBarAdmin = () => {
                                     <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Berkas</span>
                                     </NavLink>
-                                    <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                    <NavLink to='/admin-profil' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Profil</span>
                                     </NavLink>
                                     <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'exit-btn'}`}>

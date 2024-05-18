@@ -1,0 +1,32 @@
+.container{
+    background: white;
+
+}
+.form-edit{
+    padding-bottom: 10px;
+    display: grid;
+}
+.title-profil{
+    display: flex;
+    justify-content: flex-start;
+    background: rgba(119, 119, 119, 0.582);
+    width: 19%;
+    border-radius: 0 0 3px 3px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px){
+    .title-profil{
+        display: flex;
+        justify-content: flex-start;
+        background: rgba(119, 119, 119, 0.582);
+        width: 50%;
+        border-radius: 0 0 3px 3px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+}
+
