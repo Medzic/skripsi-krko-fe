@@ -36,7 +36,7 @@ const CardAdminA = () => {
     }, [])
     return (
         <button onClick={() => navigate('/pengajuan-acc')} className='buttonA '>
-            <h1>Di Terima</h1>
+            <h1>Arsip</h1>
             <h1>{filteredData.length }</h1>
         </button>
 

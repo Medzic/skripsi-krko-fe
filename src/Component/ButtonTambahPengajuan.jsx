@@ -15,7 +15,7 @@ const ButtonTambahPengajuan = () => {
 
     const handleButtonClick = () => {
         Swal.fire({
-            title: 'Masukkan Data',
+            title: 'Masukkan Pengajuan',
             html: ` <table>
                     <tr>
                         <th class='th-style' style='display: flex; width: 100%;'><strong>Tanggal</strong></th>

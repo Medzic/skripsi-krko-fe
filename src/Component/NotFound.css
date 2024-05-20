@@ -1,0 +1,17 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+}
+
+.not-found {
+    position: relative;
+    height: 100vh;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .not-found {
+        width: 100%;
+        position: relative;
+    }
+}

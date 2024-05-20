@@ -3,6 +3,7 @@ import axios from 'axios'
 import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import './TabelPengajuan.css'
 import ButtonLihatPengajuan from './ButtonLihatPengajuan';
+import NotFound from './NotFound';
 
 const TabelPengajuanProses = () => {
     const [data, setData] = useState([]);
@@ -72,7 +73,7 @@ const TabelPengajuanProses = () => {
                 </>
             ) : (
                 <div>
-                    Data Tidak Ditemukan
+                    <NotFound/>
                 </div>
             )}
             

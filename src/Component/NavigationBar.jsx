@@ -82,6 +82,9 @@ const NavigationBar = () => {
                                     <NavLink to='/berkas' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
                                         <span className='nav-text'>Berkas</span>
                                     </NavLink>
+                                    <NavLink to='/user-profil' className={`${showOffcanvas ? 'offcanvas-hover' : 'full-hover'}`}>
+                                        <span className='nav-text'>Profil</span>
+                                    </NavLink>
                                     <NavLink onClick={exitDialog} className={`${showOffcanvas ? 'offcanvas-hover' : 'exit-btn'}`}>
                                         <span className='nav-text'>Keluar</span>
                                     </NavLink>

@@ -27,7 +27,7 @@ const ProfilPasswordEdit = () => {
                 }
             };
 
-            await axios.put('http://localhost:3000/updatePassword', formData, config); 
+            await axios.put('http://localhost:3000/updatePassword', formData, config);
             Swal.fire({
                 icon: 'success',
                 text: 'Data Behasil di input',
@@ -48,7 +48,9 @@ const ProfilPasswordEdit = () => {
             <h3 className='title-profil'>Edit Password</h3>
             <form className='form-edit' onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor='passwordBefore'>Password Sekarang</label>
+                    <h5>
+                        <label htmlFor='passwordBefore'>Password Sekarang</label>
+                    </h5>
                     <div>
                         <KeyRound />
                         <input
@@ -61,7 +63,9 @@ const ProfilPasswordEdit = () => {
                     </div>
                 </div>
                 <div>
-                    <label htmlFor='passwordAfter'>Password Baru</label>
+                    <h5>
+                        <label htmlFor='passwordAfter'>Password Baru</label>
+                    </h5>
                     <div>
                         <KeyRound />
                         <input

@@ -19,7 +19,6 @@ const AuthAdmin = () => {
                 password: password
             });
 
-            console.log(response.data.role);
             const { data } = response
 
             if (!data.token) {

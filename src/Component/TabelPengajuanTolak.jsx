@@ -7,6 +7,7 @@ import ButtonEditPengajuan from './ButtonEditPengajuan';
 import ButtonEditLokasi from './ButtonEditLokasi';
 import { useNavigate } from 'react-router-dom';
 import ButtonReconfirm from './ButtonReconfirm';
+import NotFound from './NotFound';
 
 const TabelPengajuanTolak = () => {
   const [data, setData] = useState([]);
@@ -76,7 +77,7 @@ const TabelPengajuanTolak = () => {
         </>
       ) : (
         <div>
-          Data Tidak Ditemukan
+          <NotFound/>
         </div>
       )}
     </>

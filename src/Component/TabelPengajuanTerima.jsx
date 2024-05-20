@@ -5,6 +5,7 @@ import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import './TabelPengajuan.css'
 import { useNavigate } from 'react-router-dom';
 import ButtonArsipkan from './ButtonArsipkan';
+import NotFound from './NotFound';
 
 const TabelPengajuanTerima = () => {
     const [data, setData] = useState([]);
@@ -79,7 +80,7 @@ const TabelPengajuanTerima = () => {
                 </>
             ) : (
                 <div>
-                    Data Tidak Ditemukan
+                    <NotFound/>
                 </div>
             ) }
         </>

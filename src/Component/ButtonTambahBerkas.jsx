@@ -4,11 +4,14 @@ import './ButtonTambah.css'
 import addIcon from '../Asset/add.png'
 import Swal from 'sweetalert2'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const ButtonTambahBerkas = () => {
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
     const [data, setData] = useState([]);
+
+    const navigate = useNavigate();
 
     const maxSize = 2 * 1024 * 1024;
 
@@ -39,7 +42,7 @@ const ButtonTambahBerkas = () => {
 
     const handleButtonClick = () => {
         Swal.fire({
-            title: 'Masukkan Data',
+            title: 'Masukkan Berkas',
             html: renderFetchedPengajuan(data),
             width: '90%',
             icon: 'question',
@@ -47,18 +50,26 @@ const ButtonTambahBerkas = () => {
             confirmButtonColor: '#00aa0e',
             showCancelButton: true,
             cancelButtonText: 'Batal',
+            didOpen: () => {
+                const confirmButton = Swal.getConfirmButton();
+                confirmButton.disabled = true; 
+                
+                if (data.length > 0) {
+                    confirmButton.disabled = false; 
+                }
+            },
             preConfirm: async () => {
                 const pengajuanId = document.getElementById('pengajuanId').value;
                 const files = document.getElementById('files').files[0];
-                // Custom validation logic
+                // validation 
                 if (!files || files.type !== 'application/pdf') {
                     Swal.showValidationMessage('Berkas Harus bertipe PDF');
                     return false;
-                } 
+                }
                 if (files.size > maxSize) {
                     Swal.showValidationMessage('Berkas harus kurang dari 2MB');
                     return false;
-                } 
+                }
                 return [pengajuanId, files];
             }
         }).then((result) => {
@@ -71,7 +82,8 @@ const ButtonTambahBerkas = () => {
 
     const renderFetchedPengajuan = (pengajuanData) => {
         if (pengajuanData.length === 0) {
-            return '<p>No pengajuan data available</p>';
+            navigate('/pengajuan')
+            return '<p>Silahkan Buat Pengajuan Terlebih Dahulu</p>';
         }
 
         // Format pengajuan data as needed
@@ -107,12 +119,12 @@ const ButtonTambahBerkas = () => {
         formDataToSend.append('files', files);
 
         Swal.fire({
-            icon:'info',
+            icon: 'info',
             title: 'sedang mengupload...',
             allowOutsideClick: false,
             showCancelButton: false,
             showConfirmButton: false
-          });
+        });
 
         try {
             // ambil token dari cookie

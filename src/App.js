@@ -18,6 +18,7 @@ import PengajuanProsesAdminPage from './Pages/PengajuanProsesAdminPage';
 import PengajuanProsesPage from './Pages/PengajuanProsesPage';
 import ArsipPage from './Pages/ArsipPage';
 import AdminProfilPage from './Pages/AdminProfilPage';
+import ProfilPage from './Pages/ProfilPage';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
             <Route path='/' element={<AuthPage />} />
             <Route path='/Administrator' element={<AuthAdminPage />} />
             <Route path='/Admin-Profil' element={<AdminProfilPage />} />
+            <Route path='/User-Profil' element={<ProfilPage />} />
 
             <Route path='/Dashboard/' element={<Dashboard />} />
             <Route path='/Pengajuan-Ditolak' element={<PengajuanRejectPage />} />

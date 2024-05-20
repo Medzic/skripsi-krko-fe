@@ -25,7 +25,7 @@ const ProfilEdit = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/getUser', config); 
+            const response = await axios.get('http://localhost:3000/getUser', config);
             setFormData({
                 nik: response.data.nik,
                 nama: response.data.nama,
@@ -60,7 +60,7 @@ const ProfilEdit = () => {
                 }
             };
 
-            const response = await axios.put('http://localhost:3000/updateUser', formData, config); 
+            const response = await axios.put('http://localhost:3000/updateUser', formData, config);
             console.log('User data updated:', response.data);
             Swal.fire({
                 icon: 'success',
@@ -82,6 +82,10 @@ const ProfilEdit = () => {
             <h3 className='title-profil'>Edit Data User</h3>
             <form className='form-edit' onSubmit={handleSubmit}>
                 <div>
+
+                    <h5>
+                        <label htmlFor='nik'>NIK</label>
+                    </h5>
                     <BookUser />
                     <input
                         type='number'
@@ -91,8 +95,12 @@ const ProfilEdit = () => {
                         value={formData.nik}
                         onChange={handleChange}
                     />
+
                 </div>
                 <div>
+                    <h5>
+                        <label htmlFor='nama'>Username</label>
+                    </h5>
                     <User />
                     <input
                         type='text'
@@ -104,6 +112,9 @@ const ProfilEdit = () => {
                     />
                 </div>
                 <div>
+                    <h5>
+                        <label htmlFor='email'>Email</label>
+                    </h5>
                     <AtSign />
                     <input
                         type='email'
@@ -115,6 +126,9 @@ const ProfilEdit = () => {
                     />
                 </div>
                 <div>
+                    <h5>
+                        <label htmlFor='telp'>Telepon</label>
+                    </h5>
                     <Phone />
                     <input
                         type='number'
@@ -126,6 +140,9 @@ const ProfilEdit = () => {
                     />
                 </div>
                 <div>
+                    <h5>
+                        <label htmlFor='alamat'>Alamat</label>
+                    </h5>
                     <MapPin />
                     <input
                         type='Text'

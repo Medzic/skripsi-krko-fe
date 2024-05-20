@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
+import { useNavigate } from 'react-router-dom'
 import './ButtonTambah.css'
 import addIcon from '../Asset/add.png'
 import Swal from 'sweetalert2'
@@ -8,6 +9,7 @@ import axios from 'axios';
 const ButtonTambahLokasi = () => {
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
+    const navigate = useNavigate();
 
     const buttonSpring = useSpring({
         transform: clicked ? 'scale(0.95)' : 'scale(1)' // Apply scaling based on click state
@@ -36,9 +38,10 @@ const ButtonTambahLokasi = () => {
         fetchPengajuan();
     }, [])
 
+
     const handleButtonClick = () => {
         Swal.fire({
-            title: 'Masukkan Data',
+            title: 'Masukkan Lokasi',
             html: renderFetchedPengajuan(data),
             width: '90%',
             icon: 'question',
@@ -46,19 +49,44 @@ const ButtonTambahLokasi = () => {
             confirmButtonColor: '#00aa0e',
             showCancelButton: true,
             cancelButtonText: 'Batal',
+            didOpen: () => {
+                const confirmButton = Swal.getConfirmButton();
+                confirmButton.disabled = true;
+
+                if (data.length > 0) {
+                    confirmButton.disabled = false;
+                }
+            },
             preConfirm: () => {
+                const pengajuanId = document.getElementById('pengajuanId').value;
+                const loktanah = document.getElementById('loktanah').value;
+                const rt = document.getElementById('rt').value;
+                const rw = document.getElementById('rw').value;
+                const kelurahan = document.getElementById('kelurahan').value;
+                const kecamatan = document.getElementById('kecamatan').value;
+                const keperluan = document.getElementById('keperluan').value;
+                const stanah = document.getElementById('stanah').value;
+                const nocert = document.getElementById('nocert').value;
+                const luas = document.getElementById('luas').value;
+                const atasnama = document.getElementById('atasnama').value;
+
+                if (pengajuanId || loktanah || rt || rw || kelurahan || kecamatan || keperluan || stanah || nocert || luas || atasnama === null) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+
                 return [
-                    document.getElementById('pengajuanId').value,
-                    document.getElementById('loktanah').value,
-                    document.getElementById('rt').value,
-                    document.getElementById('rw').value,
-                    document.getElementById('kelurahan').value,
-                    document.getElementById('kecamatan').value,
-                    document.getElementById('keperluan').value,
-                    document.getElementById('stanah').value,
-                    document.getElementById('nocert').value,
-                    document.getElementById('luas').value,
-                    document.getElementById('atasnama').value,
+                    pengajuanId,
+                    loktanah,
+                    rt,
+                    rw,
+                    kelurahan,
+                    kecamatan,
+                    keperluan,
+                    stanah,
+                    nocert,
+                    luas,
+                    atasnama
                 ]
             }
         }).then((result) => {
@@ -71,7 +99,8 @@ const ButtonTambahLokasi = () => {
 
     const renderFetchedPengajuan = (pengajuanData) => {
         if (pengajuanData.length === 0) {
-            return '<p>No pengajuan data available</p>';
+            navigate('/pengajuan')
+            return '<p>Silahkan Buat Pengajuan Terlebih Dahulu</p>';
         }
 
         // Format pengajuan data as needed
@@ -83,8 +112,8 @@ const ButtonTambahLokasi = () => {
                             <select style=' width: 90%;' id='pengajuanId' >
                                 <option value='' >Pilih Pengajuan</option>
                                 ${pengajuanData.filter((data) => data.Lokasi === null).map((item) =>
-                                `<option value=${item.id}>${item.namep}</option>`
-                                                            ).join('')}
+            `<option value=${item.id}>${item.namep}</option>`
+        ).join('')}
                             </select>
                         </td>
 
@@ -225,12 +254,12 @@ const ButtonTambahLokasi = () => {
                     Authorization: `Bearer ${token}`
                 }
             };
-            
+
 
             const response = await axios.post('http://localhost:3000/lokasi/create', data, config);
             console.log('Data posted successfully:', response.data);
 
-            if(data.length === 0){
+            if (data.length === 0) {
                 return Swal.fire({
                     icon: 'error',
                     text: 'data Tidak boleh kosong',
