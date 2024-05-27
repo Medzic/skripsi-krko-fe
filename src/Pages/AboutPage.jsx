@@ -1,8 +1,13 @@
 import React from 'react'
+import About from '../Component/About'
+import NavigationBarUn from '../Component/NavigationBarUn'
 
 const AboutPage = () => {
   return (
-    <div>AboutPage</div>
+    <>
+      <NavigationBarUn />
+      <About />
+    </>
   )
 }
 

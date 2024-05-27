@@ -1,0 +1,67 @@
+.dash-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "chart calendar"
+        "chart aside"
+    ;
+    gap: 10px;
+}
+
+aside {
+    grid-area: aside;
+    justify-self: center;
+    justify-self: center;
+    align-self: center;
+}
+
+chart {
+    grid-area: chart;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    padding: 20px;
+}
+
+calendar {
+    grid-area: calendar;
+    background-color: rgba(26, 26, 26, 0.993);
+    justify-self: center;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .dash-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "chart "
+            "aside"
+            "calendar"
+        ;
+        padding: 20px;
+    }
+
+    aside {
+        grid-area: aside;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    chart {
+        grid-area: chart;
+        place-items: center;
+
+    }
+
+    calendar {
+        grid-area: calendar;
+        background-color: rgba(26, 26, 26, 0.993);
+        justify-self: center;
+    }
+}

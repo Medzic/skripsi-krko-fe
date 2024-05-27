@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './Card.css'
+import './CardAdmin.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -35,7 +35,7 @@ const CardAdminA = () => {
       fetchAllData();
     }, [])
     return (
-        <button onClick={() => navigate('/pengajuan-acc')} className='buttonA '>
+        <button onClick={() => navigate('/pengajuan-acc')} className='cardadmin-p'>
             <h1>Arsip</h1>
             <h1>{filteredData.length }</h1>
         </button>

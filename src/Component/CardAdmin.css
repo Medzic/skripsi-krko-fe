@@ -1,0 +1,14 @@
+.cardadmin-p{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    width: 250px;
+    height: 120px;
+    margin: 20px;
+    color: #000;
+    border-radius: 0.50rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    position: sticky;
+}

@@ -7,8 +7,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.301), inset -6px -6px 10px 0 rgba(0, 0, 0, 0.322);
+    box-shadow: inset 10px 0 10px 0 rgba(0, 0, 0, 0.301), inset -10px 0 10px 0 rgba(0, 0, 0, 0.301);
     padding: 20px;
 }
 
@@ -21,21 +20,17 @@
     align-items: center;
     height: 50px;
     margin-bottom: 50px;
-    border-radius: 5px;
-    box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 
 }
 
 .Auth-Switch .nav-link.active {
     color: black;
-    border-bottom: 3px solid #FFC413;
-    box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.2), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
+    border-bottom: 5px solid #FFC413;
 }
 
 .Auth-Switch .nav-link {
     color: black;
-
+    border-bottom: 1px solid #FFC413 ;
 }
 
 .Auth-Switch .nav-link:hover {

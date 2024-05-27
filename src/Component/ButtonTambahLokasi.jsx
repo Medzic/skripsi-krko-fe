@@ -70,7 +70,47 @@ const ButtonTambahLokasi = () => {
                 const luas = document.getElementById('luas').value;
                 const atasnama = document.getElementById('atasnama').value;
 
-                if (pengajuanId || loktanah || rt || rw || kelurahan || kecamatan || keperluan || stanah || nocert || luas || atasnama === null) {
+                if (!pengajuanId) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!loktanah) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!rt) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!rw) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!kelurahan) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!kecamatan) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!keperluan) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!stanah) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!nocert) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!luas) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!atasnama) {
                     Swal.showValidationMessage('Data tidak boleh Kosong');
                     return false;
                 }

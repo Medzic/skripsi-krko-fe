@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import './Card.css'
+import './CardAdmin.css'
 
 const CardAdminP = () => {
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ const CardAdminP = () => {
     }, [])
     return (
 
-        <button onClick={() => navigate('/pengajuan-proses')} className='buttonP '>
+        <button onClick={() => navigate('/pengajuan-proses')} className='cardadmin-p'>
             <h1>Di Proses</h1>
             <h1>{filteredData.length }</h1>
         </button>

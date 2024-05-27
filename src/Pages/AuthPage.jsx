@@ -4,10 +4,11 @@ import './AuthPage.css'
 import Swal from 'sweetalert2'
 import { TokenTrueRedirect } from './TokenRedirect'
 import NavigationBarUn from '../Component/NavigationBarUn'
+import CarouselArticle from '../Component/CarouselArticle'
 
 const AuthPage = () => {
 
-  
+
 
   const handleError = (errorMessage) => {
     //modal from here
@@ -25,19 +26,18 @@ const AuthPage = () => {
 
   return (
     <>
-    <TokenTrueRedirect/>
+      <TokenTrueRedirect />
       <NavigationBarUn />
-      <div className='auth-container'>
-        <div className='title '>
-          <h1 >Selamat datang di halaman KRK Online</h1>
-        </div>
-        <div className='auth-item' >
-          <div className='article'>
-          </div>
-          <div className="auth">
-            <Auth onError={handleError} />
-          </div>
-        </div>
+      <div className='title' >
+        <h1 >Selamat datang di halaman KRK Online</h1>
+      </div>
+      <div className='auth-item' >
+        <article >
+          <CarouselArticle />
+        </article>
+        <auth >
+          <Auth onError={handleError} />
+        </auth>
       </div>
     </>
 

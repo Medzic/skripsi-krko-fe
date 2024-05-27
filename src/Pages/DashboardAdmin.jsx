@@ -1,23 +1,29 @@
 import React from 'react'
 import { TokenFalseRedirect } from './TokenRedirect'
 import ConditionBar from './ConditionBar'
-import './Dashboard.css'
+import './DashboardAdmin.css'
 import CardAdminP from '../Component/CardAdminP'
 import CardAdminA from '../Component/CardAdminA'
-import ArsipAdmin from '../Component/ArsipAdmin'
+import ChartPengajuan from '../Component/ChartPengajuan'
+import MyCalendar from '../Component/MyCalendar'
 
 const DashboardAdmin = () => {
     return (
         <>
             <TokenFalseRedirect />
             <ConditionBar />
-            <div className='card-deck'>
-                <CardAdminP />
-                <CardAdminA />
-            </div>
-
-            <div className='card-deck-arsip'>
-                <ArsipAdmin />
+            <div className="dash-container">
+                <chart>
+                    <ChartPengajuan />
+                </chart>
+                <div className="side-container"></div>
+                <aside >
+                    <CardAdminP />
+                    <CardAdminA />
+                </aside>
+                <calendar>
+                    <MyCalendar/>
+                </calendar>
             </div>
         </>
     )

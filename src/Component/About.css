@@ -1,0 +1,13 @@
+.container-about{
+    position: relative;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 3px;
+}
+
+p {
+    text-indent: 2em; 
+    text-align: justify;
+}
