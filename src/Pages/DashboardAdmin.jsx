@@ -16,7 +16,6 @@ const DashboardAdmin = () => {
                 <chart>
                     <ChartPengajuan />
                 </chart>
-                <div className="side-container"></div>
                 <aside >
                     <CardAdminP />
                     <CardAdminA />

@@ -4,7 +4,7 @@ import axios from 'axios';
 import ButtonLihatPengajuan from './ButtonLihatPengajuan';
 import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import ButtonEditPengajuan from './ButtonEditPengajuan';
-import ButtonHapusPengajuan from './ButtonHapusPengajuan';
+import ButtonHapusAllBerkas from './ButtonHapusAllBerkas';
 import './TabelPengajuan.css'
 
 const TabelPengajuan = () => {
@@ -64,7 +64,7 @@ const TabelPengajuan = () => {
                                 <td className='tabel-btn'>
                                     <ButtonLihatPengajuan onSuccess={item.id} />
                                     <ButtonEditPengajuan onSuccess={item.id}/>
-                                    <ButtonHapusPengajuan onSuccess={item.id} />
+                                    <ButtonHapusAllBerkas onSuccess={item.id} />
                                 </td>
                             </tr>))}
                     </tbody>
