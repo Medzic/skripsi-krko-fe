@@ -7,6 +7,15 @@ import Button from 'react-bootstrap/Button'
 const ButtonEditLokasi = ({ onSuccess, onText }) => {
     const [apiSuccess, setApiSuccess] = useState(false);
 
+    const handleLengthChange = (event) => {
+        const setLength = (event.target.value);
+    };
+
+    // Function to handle changes in width input
+    const handleWidthChange = (event) => {
+        const setWidth = (event.target.value);
+    };
+
     const fetchLokasi = async () => {
         try {
             // ambil token dari cookie
@@ -24,8 +33,6 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
             const responseAll = await axios.get('http://localhost:3000/pengajuan', config)
             const allPengajuanData = responseAll.data;
 
-            console.log('datanya gan: ', specifiedLokasiData);
-
 
             Swal.fire({
                 title: 'Data Lokasi',
@@ -37,24 +44,88 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                 showCancelButton: true,
                 cancelButtonText: 'Batal',
                 preConfirm: () => {
+                    // luas
+                    const width = document.getElementById('width').value;
+                    const length = document.getElementById('length').value;
+
+                    const pengajuanId = document.getElementById('pengajuanId').value;
+                    const loktanah = document.getElementById('loktanah').value;
+                    const rt = document.getElementById('rt').value;
+                    const rw = document.getElementById('rw').value;
+                    const kelurahan = document.getElementById('kelurahan').value;
+                    const kecamatan = document.getElementById('kecamatan').value;
+                    const keperluan = document.getElementById('keperluan').value;
+                    const stanah = document.getElementById('stanah').value;
+                    const nocert = document.getElementById('nocert').value;
+                    const luas = `${length} x ${width}m²`;
+                    const atasnama = document.getElementById('atasnama').value;
+
+                    if (!pengajuanId) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!loktanah) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!rt) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!rw) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!kelurahan) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!kecamatan) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!keperluan) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!stanah) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!nocert) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!width) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!length) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!atasnama) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+
                     return [
-                        document.getElementById('pengajuanId').value,
-                        document.getElementById('loktanah').value,
-                        document.getElementById('rt').value,
-                        document.getElementById('rw').value,
-                        document.getElementById('kelurahan').value,
-                        document.getElementById('kecamatan').value,
-                        document.getElementById('keperluan').value,
-                        document.getElementById('stanah').value,
-                        document.getElementById('nocert').value,
-                        document.getElementById('luas').value,
-                        document.getElementById('atasnama').value,
+                        pengajuanId,
+                        loktanah,
+                        rt,
+                        rw,
+                        kelurahan,
+                        kecamatan,
+                        keperluan,
+                        stanah,
+                        nocert,
+                        luas,
+                        atasnama
                     ]
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
                     editLokasi(result.value);
-                    console.log(result.value);
                 }
             });
         } catch (error) {
@@ -68,6 +139,15 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
         }
     }
 
+    // useEffect(() => {
+    //     if (lokasi.luas) {
+    //         const luasParts = lokasi.luas.split(' x ');
+
+    //         setLength(luasParts[0]);
+    //         setWidth(luasParts[1].replace('m²', ''));
+    //     }
+    // }, [lokasi.luas]);
+
     const renderFetchedLokasi = (lokasiData, allPengajuan) => {
         if (lokasiData.length === 0) {
             return '<p>No Lokasi data available</p>';
@@ -77,6 +157,10 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
         }
 
         const filterData = ((data) => data.id !== lokasiData.Pengajuan.id && data.Lokasi === null)
+
+        const luasParts = lokasiData.luas.split(' x ');
+        const panjang = (luasParts[0]);
+        const lebar = (luasParts[1].replace('m²', ''));
 
 
         // Format Lokasi data as needed
@@ -89,8 +173,8 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                             
                                 <option value='${lokasiData.Pengajuan.id}' >${lokasiData.Pengajuan.namep}</option>
                                 ${allPengajuan.filter(filterData).map(item =>
-                                    `<option value="${item.id}">${item.namep}</option>`
-                                ).join('')}
+            `<option value="${item.id}">${item.namep}</option>`
+        ).join('')}
                             </select>
                         </td>
 
@@ -111,12 +195,51 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Kelurahan</strong></th>
-                        <td class='td-style'>: <input id='kelurahan' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${lokasiData.kelurahan}' /></td>
+                        <td class='td-style'>:  <select id='kelurahan' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${lokasiData.kelurahan}'>${lokasiData.kelurahan}</option>
+                        <option value='Cabawan'>Cabawan</option>
+                        <option value='Kaligangsa'>Kaligangsa</option>
+                        <option value='Kalinyamat Kulon'>Kalinyamat Kulon</option>
+                        <option value='Kradon'>Kradon</option>
+                        <option value='Margadana'>Margadana</option>
+                        <option value='Pesurungan Lor'>Pesurungan Lor</option>
+                        <option value='Sumurpanggang'>Sumurpanggang</option>
+                        <option value='Debong Lor'>Debong Lor</option>
+                        <option value='Kemandungan'>Kemandungan</option>
+                        <option value='Kraton'>Kraton</option>
+                        <option value='Muarareja'>Muarareja</option>
+                        <option value='Pekauman'>Pekauman</option>
+                        <option value='Pesurungan Kidul'>Pesurungan Kidul</option>
+                        <option value='Tegalsari'>Tegalsari</option>
+                        <option value='Bandung'>Bandung</option>
+                        <option value='Debong Kidul'>Debong Kidul</option>
+                        <option value='Debong Kulon'>Debong Kulon</option>
+                        <option value='Debong Tengah'>Debong Tengah</option>
+                        <option value='Kalinyamat Wetan'>Kalinyamat Wetan</option>
+                        <option value='Keturen'>Keturen</option>
+                        <option value='Randugunting'>Randugunting</option>
+                        <option value='Tunon'>Tunon</option>
+                        <option value='Kejambon'>Kejambon</option>
+                        <option value='Mangkukusuman'>Mangkukusuman</option>
+                        <option value='Mintaragen'>Mintaragen</option>
+                        <option value='Panggung'>Panggung</option>
+                        <option value='Slerok'>Slerok</option>
+
+                    </select>
+                    </td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Kecamatan</strong></th>
-                        <td class='td-style'>: <input id='kecamatan' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${lokasiData.kecamatan}' /></td>
+                        <td class='td-style'>: <select id='kecamatan' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${lokasiData.kecamatan}'>${lokasiData.kecamatan}</option>
+                        <option value='Tegal Barat'>Tegal Barat</option>
+                        <option value='Tegal Timur'>Tegal Timur</option>
+                        <option value='Tegal Selatan'>Tegal Selatan</option>
+                        <option value='Margadana'>Margadana</option>
+
+                    </select>
+                    </td>
 
                     </tr>
                     <tr>
@@ -126,7 +249,15 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Sertifikat Tanah</strong></th>
-                        <td class='td-style'>: <input id='stanah' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${lokasiData.stanah}' /></td>
+                        <td class='td-style'>: <select id='stanah' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${lokasiData.stanah}'>${lokasiData.stanah}</option>
+                        <option value='Hak Milik'>Hak Milik (HM)</option>
+                        <option value='Hak Guna Bangunan'>Hak Guna Bangunan (HGB)</option>
+                        <option value='Hak Pakai'>Hak Pakai (HP)</option>
+                        <option value='Hak Pengelolaan'>Hak Pengelolaan (HPL)</option>
+                        <option value='Hak Wakaf'>Hak Wakaf (HW)</option>
+
+                        </select></td>
 
                     </tr>
                     <tr>
@@ -136,11 +267,14 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Luas Tanah</strong></th>
-                        <td class='td-style'>: <input id='luas' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${lokasiData.luas}' /></td>
+                        <td class='td-style'>: <input id='length' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${panjang}' onChange='${handleLengthChange}' placeholder='Panjang'/> 
+                        x 
+                        <input id='width' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${lebar}' onChange='${handleWidthChange}' placeholder='Lebar'/> 
+                        m²</td>
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Pemilik</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Atas nama Sertifikat</strong></th>
                         <td class='td-style'>: <input id='atasnama' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${lokasiData.atasnama}' /></td>
 
                     </tr>
@@ -208,6 +342,8 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
         }
     }
 
+
+
     useEffect(() => {
         if (apiSuccess) {
             window.location.reload();
@@ -218,7 +354,7 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
 
     return (
         <Button variant='warning' onClick={fetchLokasi}>
-            {onText ? onText:Text}
+            {onText ? onText : Text}
         </Button>
     )
 }

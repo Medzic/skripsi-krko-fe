@@ -61,7 +61,7 @@ const TabelBerkas = () => {
                     <tbody>{
                         data.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.pengajuanId} </td>
+                                <td>{item.namep} </td>
                                 <td className='item-name'>{item.name}</td>
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>

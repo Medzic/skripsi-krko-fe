@@ -13,6 +13,13 @@ const ButtonTambahPengajuan = () => {
         transform: clicked ? 'scale(0.95)' : 'scale(1)' // Apply scaling based on click state
     });
 
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
     const handleButtonClick = () => {
         Swal.fire({
             title: 'Masukkan Pengajuan',
@@ -23,18 +30,18 @@ const ButtonTambahPengajuan = () => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 100%;' ><strong>Nama Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 100%;' ><strong>Nama Pemohon</strong></th>
                         <td>: <input id='namep' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 100%;' ><strong>Nama Pemohon 1</strong></th>
-                        <td>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
+                        <td>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon apabila memohon untuk diri sendiri'/></td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 100%;'><strong>Nama Pemohon 2</strong></th>
-                        <td>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
+                        <td>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon lain apabila mewakilkan permohonan'/></td>
 
                     </tr>
                     <tr>
@@ -124,6 +131,12 @@ const ButtonTambahPengajuan = () => {
 
                     </tr>
                 </table>`,
+            didOpen: () => {
+                 // Get today's date
+                 const today = new Date();
+                 // Set the value of the input field to today's date
+                 document.getElementById('tanggal').value = formatDate(today);
+            },
             width: '90%',
             icon: 'question',
             confirmButtonText: 'Kirim',
@@ -202,9 +215,9 @@ const ButtonTambahPengajuan = () => {
 
             const response = await axios.post('http://localhost:3000/pengajuan/create', data, config);
             console.log('Data posted successfully:', response.data);
-            
+
             setApiSuccess(true);
-            
+
             Swal.fire({
                 icon: 'success',
                 text: 'Data Behasil di input',

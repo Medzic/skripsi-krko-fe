@@ -50,7 +50,7 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon</strong></th>
                         <td class='td-style'>: ${pengajuanData.namep ?? ''}</td>
 
                     </tr>

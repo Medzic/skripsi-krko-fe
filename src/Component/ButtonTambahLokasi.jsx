@@ -9,13 +9,23 @@ import axios from 'axios';
 const ButtonTambahLokasi = () => {
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
+    const [width, setWidth] = useState('');
+    const [length, setLength] = useState('');
+    const [data, setData] = useState([]);
     const navigate = useNavigate();
+
+    const handleWidthChange = (event) => {
+        setWidth(event.target.value);
+    };
+
+    const handleLengthChange = (event) => {
+        setLength(event.target.value);
+    };
 
     const buttonSpring = useSpring({
         transform: clicked ? 'scale(0.95)' : 'scale(1)' // Apply scaling based on click state
     });
 
-    const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchPengajuan = async () => {
@@ -38,7 +48,6 @@ const ButtonTambahLokasi = () => {
         fetchPengajuan();
     }, [])
 
-
     const handleButtonClick = () => {
         Swal.fire({
             title: 'Masukkan Lokasi',
@@ -56,8 +65,15 @@ const ButtonTambahLokasi = () => {
                 if (data.length > 0) {
                     confirmButton.disabled = false;
                 }
+
+                document.getElementById('width').addEventListener('input', handleWidthChange);
+                document.getElementById('length').addEventListener('input', handleLengthChange);
             },
             preConfirm: () => {
+                // luas
+                const width = document.getElementById('width').value;
+                const length = document.getElementById('length').value;
+
                 const pengajuanId = document.getElementById('pengajuanId').value;
                 const loktanah = document.getElementById('loktanah').value;
                 const rt = document.getElementById('rt').value;
@@ -67,7 +83,7 @@ const ButtonTambahLokasi = () => {
                 const keperluan = document.getElementById('keperluan').value;
                 const stanah = document.getElementById('stanah').value;
                 const nocert = document.getElementById('nocert').value;
-                const luas = document.getElementById('luas').value;
+                const luas = `${length} x ${width}m²`;
                 const atasnama = document.getElementById('atasnama').value;
 
                 if (!pengajuanId) {
@@ -106,7 +122,11 @@ const ButtonTambahLokasi = () => {
                     Swal.showValidationMessage('Data tidak boleh Kosong');
                     return false;
                 }
-                if (!luas) {
+                if (!width) {
+                    Swal.showValidationMessage('Data tidak boleh Kosong');
+                    return false;
+                }
+                if (!length) {
                     Swal.showValidationMessage('Data tidak boleh Kosong');
                     return false;
                 }
@@ -229,7 +249,18 @@ const ButtonTambahLokasi = () => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Sertifikat Tanah</strong></th>
-                        <td class='td-style'>: <input id='stanah' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
+                        <td class='td-style'>: 
+                        
+                            <select id='stanah' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                            <option value=''>Masukkan Jenis Sertifikat</option>
+                            <option value='Hak Milik'>Hak Milik (HM)</option>
+                            <option value='Hak Guna Bangunan'>Hak Guna Bangunan (HGB)</option>
+                            <option value='Hak Pakai'>Hak Pakai (HP)</option>
+                            <option value='Hak Pengelolaan'>Hak Pengelolaan (HPL)</option>
+                            <option value='Hak Wakaf'>Hak Wakaf (HW)</option>
+
+                            </select>
+                        </td>
 
                     </tr>
                     <tr>
@@ -239,11 +270,16 @@ const ButtonTambahLokasi = () => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Luas Tanah</strong></th>
-                        <td class='td-style'>: <input id='luas' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
+                        <td class='td-style'>
+                        : <input id='length' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${length}' onChange='${handleLengthChange}' placeholder='Panjang'/> 
+                            x 
+                            <input id='width' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${width}' onChange='${handleWidthChange}' placeholder='Lebar'/> 
+                            m²
+                        </td>
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Pemilik</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Atas nama Sertifikat</strong></th>
                         <td class='td-style'>: 
                         <input id='atasnama' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/>
                         </td>

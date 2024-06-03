@@ -75,18 +75,18 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                         <td class='td-style'>: <input id='tanggal' style='width: 90%; border: none; border-bottom: 2px solid;' type='date' value='${pengajuanData.tanggal ?? ''}' /> </td>
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon</strong></th>
                         <td class='td-style'>: <input id='namep' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.namep ?? ''}' /></td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon 1</strong></th>
-                        <td class='td-style'>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.namep1 ?? ''}' /></td>
+                        <td class='td-style'>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon apabila memohon untuk diri sendiri' value='${pengajuanData.namep1 ?? ''}' /></td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon 2</strong></th>
-                        <td class='td-style'>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.namep2 ?? ''}' /></td>
+                        <td class='td-style'>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon lain apabila mewakilkan permohonan' value='${pengajuanData.namep2 ?? ''}' /></td>
 
                     </tr>
                     <tr>
