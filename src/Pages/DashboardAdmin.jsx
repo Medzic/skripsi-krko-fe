@@ -6,6 +6,7 @@ import CardAdminP from '../Component/CardAdminP'
 import CardAdminA from '../Component/CardAdminA'
 import ChartPengajuan from '../Component/ChartPengajuan'
 import MyCalendar from '../Component/MyCalendar'
+import CardAdminAmbil from '../Component/CardAdminAmbil'
 
 const DashboardAdmin = () => {
     return (
@@ -18,6 +19,7 @@ const DashboardAdmin = () => {
                 </chart>
                 <aside >
                     <CardAdminP />
+                    <CardAdminAmbil/>
                     <CardAdminA />
                 </aside>
                 <calendar>

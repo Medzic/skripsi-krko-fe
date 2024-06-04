@@ -9,18 +9,18 @@ import axios from 'axios';
 const ButtonTambahLokasi = () => {
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
-    const [width, setWidth] = useState('');
-    const [length, setLength] = useState('');
+    // const [width, setWidth] = useState('');
+    // const [length, setLength] = useState('');
     const [data, setData] = useState([]);
     const navigate = useNavigate();
 
-    const handleWidthChange = (event) => {
-        setWidth(event.target.value);
-    };
+    // const handleWidthChange = (event) => {
+    //     setWidth(event.target.value);
+    // };
 
-    const handleLengthChange = (event) => {
-        setLength(event.target.value);
-    };
+    // const handleLengthChange = (event) => {
+    //     setLength(event.target.value);
+    // };
 
     const buttonSpring = useSpring({
         transform: clicked ? 'scale(0.95)' : 'scale(1)' // Apply scaling based on click state
@@ -66,8 +66,8 @@ const ButtonTambahLokasi = () => {
                     confirmButton.disabled = false;
                 }
 
-                document.getElementById('width').addEventListener('input', handleWidthChange);
-                document.getElementById('length').addEventListener('input', handleLengthChange);
+                // document.getElementById('width').addEventListener('input', handleWidthChange);
+                // document.getElementById('length').addEventListener('input', handleLengthChange);
             },
             preConfirm: () => {
                 // luas
@@ -271,9 +271,9 @@ const ButtonTambahLokasi = () => {
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Luas Tanah</strong></th>
                         <td class='td-style'>
-                        : <input id='length' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${length}' onChange='${handleLengthChange}' placeholder='Panjang'/> 
+                        : <input id='length' style='width: 30%; border: none; border-bottom: 2px solid;' type='number'  placeholder='Panjang'/> 
                             x 
-                            <input id='width' style='width: 30%; border: none; border-bottom: 2px solid;' type='number' value='${width}' onChange='${handleWidthChange}' placeholder='Lebar'/> 
+                            <input id='width' style='width: 30%; border: none; border-bottom: 2px solid;' type='number'  placeholder='Lebar'/> 
                             m²
                         </td>
 

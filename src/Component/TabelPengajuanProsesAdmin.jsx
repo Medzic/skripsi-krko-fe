@@ -115,7 +115,7 @@ const Dropdown = ({ data }) => {
               .map((filteredPengajuan, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{filteredPengajuan.namep}</td>
+                  <td>{filteredPengajuan.namep1}</td>
                   <td className='btn-proses'>
                     <ButtonPengajuanProses dataId={filteredPengajuan.id} />
                   </td>

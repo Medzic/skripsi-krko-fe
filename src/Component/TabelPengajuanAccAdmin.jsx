@@ -95,7 +95,7 @@ const Dropdown = ({ data }) => {
 
   return (
     <div className="tabel-pengajuan" >
-      {data.filter(pengajuan => pengajuan.noreg).length > 0 ?
+      {data.filter(pengajuan => pengajuan.picked).length > 0 ?
         (<button className="dropdown-button" onClick={toggleDropdown}>
           Lihat Data
         </button>) : (
@@ -113,11 +113,11 @@ const Dropdown = ({ data }) => {
           </thead>
           <tbody>
             {data
-              .filter(pengajuan => pengajuan.noreg )
+              .filter(pengajuan => pengajuan.picked )
               .map((filteredPengajuan, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{filteredPengajuan.namep}</td>
+                  <td>{filteredPengajuan.namep1}</td>
                   <td className='btn-proses'>
                     <ButtonExport onSuccess={filteredPengajuan.id}/>
                   </td>

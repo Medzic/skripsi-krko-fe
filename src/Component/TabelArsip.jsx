@@ -62,7 +62,7 @@ const TabelArsip = () => {
                             data.filter(item => item.arsip === true).map((item, index) => (
                                 <tr key={index}>
                                     <td>{index + 1}</td>
-                                    <td>{item.namep}</td>
+                                    <td>{item.namep1}</td>
                                     <td className='tabel-btn'>
                                         <Button onClick={() => navigate(`/Print/${item.id}`)}>Cetak</Button>
 

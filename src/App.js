@@ -19,6 +19,7 @@ import PengajuanProsesPage from './Pages/PengajuanProsesPage';
 import ArsipPage from './Pages/ArsipPage';
 import AdminProfilPage from './Pages/AdminProfilPage';
 import ProfilPage from './Pages/ProfilPage';
+import PengajuanAmbilAdminPage from './Pages/PengajuanAmbilAdminPage';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
             <Route path='/Dashboard-Admin' element={<DashboardAdmin />} />
             <Route path='/Pengajuan-Proses' element={<PengajuanProsesAdminPage />} />
             <Route path='/Pengajuan-Acc' element={<PengajuanAccAdminPage />} />
+            <Route path='/Pengajuan-ambil' element={<PengajuanAmbilAdminPage />} />
 
             <Route path='/Pengajuan' element={<PengajuanPage />} />
             <Route path='/Lokasi' element={<LokasiPage />} />

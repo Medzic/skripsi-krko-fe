@@ -28,7 +28,7 @@ const CardAdminA = () => {
     const filteredData = data
     .flatMap(user => user.Pengajuans) 
     .filter(pengajuan => 
-      pengajuan.noreg
+      pengajuan.picked
     );
   
     useEffect(() => {

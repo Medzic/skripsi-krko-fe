@@ -54,7 +54,7 @@ const TabelPengajuanTolak = () => {
                 <div className="item-container">
                   <div className='card-user-item'>
                     <h3>PId: {item.id}</h3>
-                    <h3>Pemohon: {item.namep}</h3>
+                    <h3>Pemohon: {item.namep1}</h3>
                     <div>
                       <h2>Catatan: </h2>
                       <div className="note"></div>

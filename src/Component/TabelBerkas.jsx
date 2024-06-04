@@ -52,7 +52,7 @@ const TabelBerkas = () => {
                 <Table  striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Pemohon</th>
+                            <th>Pid</th>
                             <th>Nama Berkas</th>
                             <th>Link</th>
                             <th>Aksi</th>

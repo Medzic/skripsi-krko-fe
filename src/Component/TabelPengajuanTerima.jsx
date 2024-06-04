@@ -55,7 +55,7 @@ const TabelPengajuanTerima = () => {
                                     <div className="item-container">
                                         <div className='card-user-item'>
                                             <h3>PId: {item.id}</h3>
-                                            <h3>Pemohon: {item.namep}</h3>
+                                            <h3>Pemohon: {item.namep1}</h3>
                                             <h3>No Registrasi: {item.noreg}</h3>
                                             <div>
                                                 <h5>Catatan: </h5>
