@@ -60,7 +60,7 @@ const TabelPengajuan = () => {
                         {data.map((item, index) => (
                             <tr key={index}>
                                 <td className='item-id'>{item.id} </td>
-                                <td>{item.namep}</td>
+                                <td>{item.namep1}</td>
                                 <td className='tabel-btn'>
                                     <ButtonLihatPengajuan onSuccess={item.id} />
                                     <ButtonEditPengajuan onSuccess={item.id}/>

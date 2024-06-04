@@ -30,18 +30,23 @@ const ButtonTambahPengajuan = () => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 100%;' ><strong>Nama Pemohon</strong></th>
-                        <td>: <input id='namep' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
-
-                    </tr>
-                    <tr>
                         <th class='th-style' style='display: flex; width: 100%;' ><strong>Nama Pemohon 1</strong></th>
                         <td>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon apabila memohon untuk diri sendiri'/></td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 100%;'><strong>Nama Pemohon 2</strong></th>
-                        <td>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon lain apabila mewakilkan permohonan'/></td>
+                        <td>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon 2, kosongkan apabila pemohon lebih dari 2 '/></td>
+
+                    </tr>
+                    <tr>
+                    <th class='th-style' style='display: flex; width: 100%;' ><strong>Pemohon > 3</strong></th>
+                    <td>: 
+                        <select id='namep3' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value=''>Tidak</option>
+                        <option value='cs'>Ya</option>
+                        </select>
+                    </td>
 
                     </tr>
                     <tr>
@@ -51,7 +56,7 @@ const ButtonTambahPengajuan = () => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 100%;' ><strong>NIK Pemohon 2</strong></th>
-                        <td>: <input id='nikp2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
+                        <td>: <input id='nikp2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nik pemohon 2, kosongkan apabila pemohon lebih dari 2 '/></td>
 
                     </tr>
                     <tr>
@@ -146,9 +151,9 @@ const ButtonTambahPengajuan = () => {
             preConfirm: () => {
                 return [
                     document.getElementById('tanggal').value,
-                    document.getElementById('namep').value,
                     document.getElementById('namep1').value,
                     document.getElementById('namep2').value,
+                    document.getElementById('namep3').value,
                     document.getElementById('nikp1').value,
                     document.getElementById('nikp2').value,
                     document.getElementById('telp').value,
@@ -171,9 +176,9 @@ const ButtonTambahPengajuan = () => {
     const handlePostData = async (formData) => {
         const [
             tanggal,
-            namep,
             namep1,
             namep2,
+            namep3,
             nikp1,
             nikp2,
             telp,
@@ -187,9 +192,9 @@ const ButtonTambahPengajuan = () => {
 
         const data = {
             tanggal,
-            namep,
             namep1,
             namep2,
+            namep3,
             nikp1,
             nikp2,
             telp,

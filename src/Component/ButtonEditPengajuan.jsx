@@ -31,9 +31,9 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                 preConfirm: () => {
                     return [
                         document.getElementById('tanggal').value,
-                        document.getElementById('namep').value,
                         document.getElementById('namep1').value,
                         document.getElementById('namep2').value,
+                        document.getElementById('namep3').value,
                         document.getElementById('nikp1').value,
                         document.getElementById('nikp2').value,
                         document.getElementById('telp').value,
@@ -75,11 +75,6 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                         <td class='td-style'>: <input id='tanggal' style='width: 90%; border: none; border-bottom: 2px solid;' type='date' value='${pengajuanData.tanggal ?? ''}' /> </td>
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon</strong></th>
-                        <td class='td-style'>: <input id='namep' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.namep ?? ''}' /></td>
-
-                    </tr>
-                    <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon 1</strong></th>
                         <td class='td-style'>: <input id='namep1' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon apabila memohon untuk diri sendiri' value='${pengajuanData.namep1 ?? ''}' /></td>
 
@@ -87,6 +82,16 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon 2</strong></th>
                         <td class='td-style'>: <input id='namep2' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' placeholder='masukkan nama pemohon lain apabila mewakilkan permohonan' value='${pengajuanData.namep2 ?? ''}' /></td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Pemohon > 3</strong></th>
+                        <td class='td-style'>: <select id='namep3' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${pengajuanData.namep3}'>${pengajuanData.namep3 ? 'Ya' : 'Tidak'}</option>
+                        <option value='cs'>Ya</option>
+                        <option value=''>Tidak</option>
+                        </select>
+                        </td>
 
                     </tr>
                     <tr>
@@ -121,13 +126,50 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Kelurahan</strong></th>
-                        <td class='td-style'>: <input id='kelurahan' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.kelurahan ?? ''}' />
+                        <td class='td-style'>:  
+                        <select id='kelurahan' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${pengajuanData.kelurahan}'>${pengajuanData.kelurahan}</option>
+                        <option value='Cabawan'>Cabawan</option>
+                        <option value='Kaligangsa'>Kaligangsa</option>
+                        <option value='Kalinyamat Kulon'>Kalinyamat Kulon</option>
+                        <option value='Kradon'>Kradon</option>
+                        <option value='Margadana'>Margadana</option>
+                        <option value='Pesurungan Lor'>Pesurungan Lor</option>
+                        <option value='Sumurpanggang'>Sumurpanggang</option>
+                        <option value='Debong Lor'>Debong Lor</option>
+                        <option value='Kemandungan'>Kemandungan</option>
+                        <option value='Kraton'>Kraton</option>
+                        <option value='Muarareja'>Muarareja</option>
+                        <option value='Pekauman'>Pekauman</option>
+                        <option value='Pesurungan Kidul'>Pesurungan Kidul</option>
+                        <option value='Tegalsari'>Tegalsari</option>
+                        <option value='Bandung'>Bandung</option>
+                        <option value='Debong Kidul'>Debong Kidul</option>
+                        <option value='Debong Kulon'>Debong Kulon</option>
+                        <option value='Debong Tengah'>Debong Tengah</option>
+                        <option value='Kalinyamat Wetan'>Kalinyamat Wetan</option>
+                        <option value='Keturen'>Keturen</option>
+                        <option value='Randugunting'>Randugunting</option>
+                        <option value='Tunon'>Tunon</option>
+                        <option value='Kejambon'>Kejambon</option>
+                        <option value='Mangkukusuman'>Mangkukusuman</option>
+                        <option value='Mintaragen'>Mintaragen</option>
+                        <option value='Panggung'>Panggung</option>
+                        <option value='Slerok'>Slerok</option>
+                        </select>
                         </td>
 
                     </tr>
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Kecamatan</strong></th>
-                        <td class='td-style'>: <input id='kecamatan' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.kecamatan ?? ''}' />
+                        <td class='td-style'>: 
+                        <select id='kecamatan' style='width: 90%; border: none; border-bottom: 2px solid;'>
+                        <option value='${pengajuanData.kecamatan}'>${pengajuanData.kecamatan}</option>
+                        <option value='Tegal Barat'>Tegal Barat</option>
+                        <option value='Tegal Timur'>Tegal Timur</option>
+                        <option value='Tegal Selatan'>Tegal Selatan</option>
+                        <option value='Margadana'>Margadana</option>
+                        </select>
                         </td>
 
                     </tr>
@@ -144,9 +186,9 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
     const editPengajuan = async (formData) => {
         const [
             tanggal,
-            namep,
             namep1,
             namep2,
+            namep3,
             nikp1,
             nikp2,
             telp,
@@ -160,9 +202,9 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
 
         const data = {
             tanggal,
-            namep,
             namep1,
             namep2,
+            namep3,
             nikp1,
             nikp2,
             telp,

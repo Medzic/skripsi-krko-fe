@@ -50,11 +50,6 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon</strong></th>
-                        <td class='td-style'>: ${pengajuanData.namep ?? ''}</td>
-
-                    </tr>
-                    <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon 1</strong></th>
                         <td class='td-style'>: ${pengajuanData.namep1 ?? ''}</td>
 
@@ -62,6 +57,11 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon 2</strong></th>
                         <td class='td-style'>: ${pengajuanData.namep2 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Pemohon > 3</strong></th>
+                        <td class='td-style'>: ${pengajuanData.namep3 ?? ''}</td>
 
                     </tr>
                     <tr>
