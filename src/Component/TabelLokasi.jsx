@@ -53,8 +53,8 @@ const TabelLokasi = () => {
             <Table className='position-relative' striped bordered hover size="sm">
                 <thead>
                     <tr>
-                        <th>PId</th>
-                        <th>Nama Pemohon</th>
+                        
+                        <th>Pemohon</th>
                         <th>Lokasi Tanah</th>
                         <th>Aksi</th>
                     </tr>
@@ -62,8 +62,8 @@ const TabelLokasi = () => {
                 <tbody>
                     {filteredData.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.id} </td>
-                            <td>{item.namep}</td>
+                            
+                            <td>{item.namep1}</td>
                             <td>{item.Lokasi?.loktanah}</td>
                             <td className='tabel-btn'>
                                 

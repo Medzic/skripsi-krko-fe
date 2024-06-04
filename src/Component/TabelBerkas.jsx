@@ -52,7 +52,7 @@ const TabelBerkas = () => {
                 <Table  striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>PId</th>
+                            <th>Pemohon</th>
                             <th>Nama Berkas</th>
                             <th>Link</th>
                             <th>Aksi</th>
@@ -61,7 +61,7 @@ const TabelBerkas = () => {
                     <tbody>{
                         data.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.namep} </td>
+                                <td>{item.pengajuanId} </td>
                                 <td className='item-name'>{item.name}</td>
                                 <td><NavLink to={`https://docs.google.com/viewer?url=${encodeURIComponent(item.url)}`} target='_blank' rel='noreferrer'>Lihat Berkas</NavLink></td>
                                 <td className='m-1'>

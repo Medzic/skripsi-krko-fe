@@ -91,7 +91,7 @@ const ButtonLihatLokasi = ({ onSuccess }) => {
 
             </tr>
             <tr>
-                <th class='th-style' style='display: flex; width: 100%;' ><strong>Atas Nama Sertifiakat</strong></th>
+                <th class='th-style' style='display: flex; width: 100%;' ><strong>Atas Nama Sertifikat</strong></th>
                 <td class='td-style'>: ${lokasiData.atasnama}</td>
 
             </tr>

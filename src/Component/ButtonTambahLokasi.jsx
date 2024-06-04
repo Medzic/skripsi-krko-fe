@@ -172,7 +172,7 @@ const ButtonTambahLokasi = () => {
                             <select style=' width: 90%;' id='pengajuanId' >
                                 <option value='' >Pilih Pengajuan</option>
                                 ${pengajuanData.filter((data) => data.Lokasi === null).map((item) =>
-            `<option value=${item.id}>${item.namep}</option>`
+            `<option value=${item.id}>${item.namep1}</option>`
         ).join('')}
                             </select>
                         </td>

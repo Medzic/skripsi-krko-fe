@@ -72,10 +72,10 @@ const ButtonEditBerkas = ({ onSuccess }) => {
                     <th class='th-style' style='display: flex; width: 100%;'><strong>Pengajuan</strong></th>
                     <td class='td-style'>: 
                         <select style=' width: 90%;' id='pengajuanId' >
-                            <option value='${berkasData.Pengajuan.id}' >${berkasData.Pengajuan.namep}</option>
+                            <option value='${berkasData.Pengajuan.id}' >${berkasData.Pengajuan.namep1}</option>
                             ${allPengajuan.filter(filterData).map(item =>
                                 item.id !== berkasData.Pengajuan.id ?
-                                `<option value="${item.id}">${item.namep}</option>` : ''
+                                `<option value="${item.id}">${item.namep1}</option>` : ''
                             ).join('')}
                         </select>
                     </td>

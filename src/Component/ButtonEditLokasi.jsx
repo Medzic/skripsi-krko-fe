@@ -171,9 +171,9 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                         <td class='td-style'>: 
                             <select style=' width: 90%;' id='pengajuanId' >
                             
-                                <option value='${lokasiData.Pengajuan.id}' >${lokasiData.Pengajuan.namep}</option>
+                                <option value='${lokasiData.Pengajuan.id}' >${lokasiData.Pengajuan.namep1}</option>
                                 ${allPengajuan.filter(filterData).map(item =>
-            `<option value="${item.id}">${item.namep}</option>`
+            `<option value="${item.id}">${item.namep1}</option>`
         ).join('')}
                             </select>
                         </td>
