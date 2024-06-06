@@ -10,6 +10,7 @@ import ButtonHapusLokasi from './ButtonHapusLokasi';
 const TabelLokasi = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const fetchLokasi = async () => {
         try {
@@ -22,7 +23,7 @@ const TabelLokasi = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/lokasi', config)
+            const response = await axios.get(`${backendUrl}/lokasi`, config)
             setData(response.data);
             setIsLoading(false);
         } catch (error) {

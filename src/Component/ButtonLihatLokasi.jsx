@@ -4,6 +4,8 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const ButtonLihatLokasi = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
 
     const fetchLokasi = async () => {
         try {
@@ -16,7 +18,7 @@ const ButtonLihatLokasi = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/lokasi/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/lokasi/${onSuccess}`, config)
 
             Swal.fire({
                 title: 'Data Lokasi',

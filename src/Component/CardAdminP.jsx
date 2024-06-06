@@ -5,6 +5,7 @@ import './CardAdmin.css'
 
 const CardAdminP = () => {
     const navigate = useNavigate();
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const [data, setData] = useState([]);
 
@@ -18,7 +19,7 @@ const CardAdminP = () => {
             Authorization: `Bearer ${token}`
           }
         };
-        const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+        const response = await axios.get(`${backendUrl}/admin/getaccpengajuan`, config)
         setData(response.data);
   
       } catch (error) {

@@ -6,6 +6,7 @@ import { BookUser, KeyRound } from 'lucide-react'
 
 
 export const AuthLogin = ({ onLogin, onError }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const [nik, setNik] = useState('');
     const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ export const AuthLogin = ({ onLogin, onError }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/login', {
+            const response = await axios.post(`${backendUrl}/login`, {
                 nik: nik,
                 password: password
             });

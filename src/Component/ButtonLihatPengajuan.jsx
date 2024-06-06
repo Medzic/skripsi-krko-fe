@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 import './ButtonTambah.css'
 
 const ButtonLihatPengajuan = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const fetchPengajuan = async () => {
         try {
             // ambil token dari cookie
@@ -16,7 +18,7 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/pengajuan/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/pengajuan/${onSuccess}`, config)
             Swal.fire({
                 title: 'Data pengajuan',
                 html: renderFetchedPengajuan(response.data),

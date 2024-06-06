@@ -4,6 +4,8 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const ButtonHapusPengajuan = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const hapusPengajuan = async () => {
@@ -17,7 +19,7 @@ const ButtonHapusPengajuan = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/pengajuan/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/pengajuan/${onSuccess}`, config)
 
             Swal.fire({
                 title: 'Hapus pengajuan?',
@@ -39,7 +41,7 @@ const ButtonHapusPengajuan = ({ onSuccess }) => {
                             }
                         };
     
-                        await axios.delete(`http://localhost:3000/pengajuan/delete/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/pengajuan/delete/${onSuccess}`, config)
 
                         setApiSuccess(true);
 

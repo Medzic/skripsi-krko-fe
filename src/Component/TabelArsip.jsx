@@ -7,6 +7,8 @@ import ButtonLihatPengajuanDetail from './ButtonLihatPengajuanDetail';
 import { useNavigate } from 'react-router-dom';
 
 const TabelArsip = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +25,7 @@ const TabelArsip = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/pengajuan', config)
+            const response = await axios.get(`${backendUrl}/pengajuan`, config)
             setData(response.data);
             setIsLoading(false);
         } catch (error) {

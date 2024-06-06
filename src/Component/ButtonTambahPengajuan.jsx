@@ -6,6 +6,8 @@ import Swal from 'sweetalert2'
 import axios from 'axios';
 
 const ButtonTambahPengajuan = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
 
@@ -218,7 +220,7 @@ const ButtonTambahPengajuan = () => {
                 }
             };
 
-            const response = await axios.post('http://localhost:3000/pengajuan/create', data, config);
+            const response = await axios.post(`${backendUrl}/pengajuan/create`, data, config);
             console.log('Data posted successfully:', response.data);
 
             setApiSuccess(true);

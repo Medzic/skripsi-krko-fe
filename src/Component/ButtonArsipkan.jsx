@@ -4,6 +4,8 @@ import { Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
 const ButtonArsipkan = ({onSuccess}) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const arsipkan = () => {
@@ -32,7 +34,7 @@ const ButtonArsipkan = ({onSuccess}) => {
                         }
                     };
 
-                    const response = await axios.patch(`http://localhost:3000/pengajuan/arsip/${onSuccess}`, data, config);
+                    const response = await axios.patch(`${backendUrl}/pengajuan/arsip/${onSuccess}`, data, config);
                     console.log('Data posted successfully:', response.data);
 
                     setApiSuccess(true);

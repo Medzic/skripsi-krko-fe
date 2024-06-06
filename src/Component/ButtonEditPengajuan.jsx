@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 
 
 const ButtonEditPengajuan = ({ onSuccess, onText }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const fetchPengajuan = async () => {
@@ -18,7 +20,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/pengajuan/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/pengajuan/${onSuccess}`, config)
             Swal.fire({
                 title: 'Data pengajuan',
                 html: renderFetchedPengajuan(response.data),
@@ -226,7 +228,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                 }
             };
 
-            const response = await axios.put(`http://localhost:3000/pengajuan/edit/${onSuccess}`, data, config)
+            const response = await axios.put(`${backendUrl}/pengajuan/edit/${onSuccess}`, data, config)
             console.log('Data posted successfully:', response.data);
            
             setApiSuccess(true);

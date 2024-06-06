@@ -7,6 +7,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 
 const ButtonTambahBerkas = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
     const [data, setData] = useState([]);
@@ -31,7 +33,7 @@ const ButtonTambahBerkas = () => {
                     }
                 };
 
-                const response = await axios.get('http://localhost:3000/pengajuan', config)
+                const response = await axios.get(`${backendUrl}/pengajuan`, config)
                 setData(response.data);
             } catch (error) {
                 console.log(error);
@@ -138,7 +140,7 @@ const ButtonTambahBerkas = () => {
             };
 
 
-            const response = await axios.post('http://localhost:3000/dokumen/upload', formDataToSend, config);
+            const response = await axios.post(`${backendUrl}/dokumen/upload`, formDataToSend, config);
             console.log('Data posted successfully:', response.data);
 
             if (data.length === 0) {

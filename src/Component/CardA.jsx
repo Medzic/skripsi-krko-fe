@@ -5,6 +5,7 @@ import './Card.css'
 
 const CardA = () => {
     const [data, setData] = useState([]);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ const CardA = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/pengajuan', config)
+            const response = await axios.get(`${backendUrl}/pengajuan`, config)
             setData(response.data);
         } catch (error) {
             console.log(error);

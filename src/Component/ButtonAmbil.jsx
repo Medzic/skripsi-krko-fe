@@ -4,7 +4,10 @@ import { Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
 const ButtonAmbil = ({ onSuccess }) => {
+  const backendUrl = process.env.REACT_APP_ENDPOINT
+
   const [apiSuccess, setApiSuccess] = useState(false);
+  
 
   const ambil = () => {
     const data = {
@@ -32,7 +35,7 @@ const ButtonAmbil = ({ onSuccess }) => {
             }
           };
 
-          const response = await axios.patch(`http://localhost:3000/pengajuan/picked/${onSuccess}`, data, config);
+          const response = await axios.patch(`${backendUrl}/pengajuan/picked/${onSuccess}`, data, config);
           console.log('Data posted successfully:', response.data);
 
           setApiSuccess(true);

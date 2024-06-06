@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
 const ProfilPasswordEdit = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [formData, setFormData] = useState({
         oldPassword: '',
         newPassword: ''
@@ -27,7 +29,7 @@ const ProfilPasswordEdit = () => {
                 }
             };
 
-            await axios.put('http://localhost:3000/updatePassword', formData, config);
+            await axios.put(`${backendUrl}/updatePassword`, formData, config);
             Swal.fire({
                 icon: 'success',
                 text: 'Data Behasil di input',

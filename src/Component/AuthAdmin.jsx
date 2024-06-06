@@ -7,6 +7,7 @@ import './Auth.css'
 import { AtSign, User } from 'lucide-react';
 
 const AuthAdmin = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
     const [nama, setNama] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ const AuthAdmin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/admin/login', {
+            const response = await axios.post(`${backendUrl}/admin/login`, {
                 nama: nama,
                 password: password
             });

@@ -6,6 +6,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const ProfilEdit = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
     const [formData, setFormData] = useState({
         nik: '',
         nama: '',
@@ -25,7 +26,7 @@ const ProfilEdit = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/getUser', config);
+            const response = await axios.get(`${backendUrl}/getUser`, config);
             setFormData({
                 nik: response.data.nik,
                 nama: response.data.nama,
@@ -60,7 +61,7 @@ const ProfilEdit = () => {
                 }
             };
 
-            const response = await axios.put('http://localhost:3000/updateUser', formData, config);
+            const response = await axios.put(`${backendUrl}/updateUser`, formData, config);
             console.log('User data updated:', response.data);
             Swal.fire({
                 icon: 'success',

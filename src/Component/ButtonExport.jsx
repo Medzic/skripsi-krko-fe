@@ -18,6 +18,7 @@ const flattenObject = (obj, prefix = '') => {
 };
 
 const ButtonExport = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const fetchPengajuan = async () => {
         try {
@@ -30,7 +31,7 @@ const ButtonExport = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/pengajuan/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/pengajuan/${onSuccess}`, config)
             const responseData = response.data;
             const dataArray = Array.isArray(responseData) ? responseData : [responseData];
             const flattenedData = dataArray.map(item => flattenObject(item));

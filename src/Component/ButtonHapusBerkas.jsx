@@ -4,8 +4,9 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const ButtonHapusBerkas = ({ onSuccess }) => {
-    const [apiSuccess, setApiSuccess] = useState(false);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
+    const [apiSuccess, setApiSuccess] = useState(false);
 
     const hapusBerkas = async () => {
         try {
@@ -18,7 +19,7 @@ const ButtonHapusBerkas = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/dokumen/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/dokumen/${onSuccess}`, config)
 
             Swal.fire({
                 title: 'Hapus Berkas?',
@@ -40,7 +41,7 @@ const ButtonHapusBerkas = ({ onSuccess }) => {
                             }
                         };
 
-                        await axios.delete(`http://localhost:3000/dokumen/delete/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/dokumen/delete/${onSuccess}`, config)
 
                         setApiSuccess(true);
 

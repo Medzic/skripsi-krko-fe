@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 import axios from 'axios';
 
 const ButtonTambahLokasi = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [clicked, setClicked] = useState(false);
     const [apiSuccess, setApiSuccess] = useState(false);
     // const [width, setWidth] = useState('');
@@ -39,7 +41,7 @@ const ButtonTambahLokasi = () => {
                     }
                 };
 
-                const response = await axios.get('http://localhost:3000/pengajuan', config)
+                const response = await axios.get(`${backendUrl}/pengajuan`, config)
                 setData(response.data);
             } catch (error) {
                 console.log(error);
@@ -332,7 +334,7 @@ const ButtonTambahLokasi = () => {
             };
 
 
-            const response = await axios.post('http://localhost:3000/lokasi/create', data, config);
+            const response = await axios.post(`${backendUrl}/lokasi/create`, data, config);
             console.log('Data posted successfully:', response.data);
 
             if (data.length === 0) {

@@ -9,6 +9,7 @@ import ButtonAmbil from './ButtonAmbil';
 const TabelPengajuanAmbilAdmin = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
   
     const fetchAllData = async () => {
       try {
@@ -20,7 +21,7 @@ const TabelPengajuanAmbilAdmin = () => {
             Authorization: `Bearer ${token}`
           }
         };
-        const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+        const response = await axios.get(`${backendUrl}/admin/getaccpengajuan`, config)
         setData(response.data);
   
         setIsLoading(false);

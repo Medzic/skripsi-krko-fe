@@ -7,6 +7,8 @@ import ButtonEditBerkas from './ButtonEditBerkas'
 import ButtonHapusBerkas from './ButtonHapusBerkas'
 
 const TabelBerkas = () => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +23,7 @@ const TabelBerkas = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/dokumen', config)
+            const response = await axios.get(`${backendUrl}/dokumen`, config)
 
             setData(response.data);
         } catch (error) {

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Printed = ({ onSuccess }) => {
     const [item, setItem] = useState(null);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ const Printed = ({ onSuccess }) => {
                         Authorization: `Bearer ${token}`
                     }
                 };
-                const response = await axios.get(`http://localhost:3000/pengajuan/${onSuccess}`, config);
+                const response = await axios.get(`${backendUrl}/pengajuan/${onSuccess}`, config);
                 setItem(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

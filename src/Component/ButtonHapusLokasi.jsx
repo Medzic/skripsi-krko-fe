@@ -4,8 +4,9 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 const ButtonHapusLokasi = ({ onSuccess }) => {
-    const [apiSuccess, setApiSuccess] = useState(false);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
+    const [apiSuccess, setApiSuccess] = useState(false);
 
     const hapusLokasi = async () => {
         try {
@@ -18,7 +19,7 @@ const ButtonHapusLokasi = ({ onSuccess }) => {
                 }
             };
 
-            const response = await axios.get(`http://localhost:3000/lokasi/${onSuccess}`, config)
+            const response = await axios.get(`${backendUrl}/lokasi/${onSuccess}`, config)
 
             Swal.fire({
                 title: 'Hapus Lokasi?',
@@ -40,7 +41,7 @@ const ButtonHapusLokasi = ({ onSuccess }) => {
                             }
                         };
 
-                        await axios.delete(`http://localhost:3000/lokasi/delete/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/lokasi/delete/${onSuccess}`, config)
 
                         setApiSuccess(true);
 

@@ -8,6 +8,8 @@ import ButtonExport from './ButtonExport';
 
 
 const TabelPengajuanAccAdmin = () => {
+  const backendUrl = process.env.REACT_APP_ENDPOINT
+
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -21,7 +23,7 @@ const TabelPengajuanAccAdmin = () => {
           Authorization: `Bearer ${token}`
         }
       };
-      const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+      const response = await axios.get(`${backendUrl}/admin/getaccpengajuan`, config)
       setData(response.data);
 
       setIsLoading(false);

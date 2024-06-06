@@ -5,6 +5,8 @@ import './ButtonPengajuanProses.css';
 import Swal from 'sweetalert2';
 
 const ButtonPengajuanProses = ({ dataId }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const handleFetch = async () => {
@@ -19,9 +21,9 @@ const ButtonPengajuanProses = ({ dataId }) => {
                 }
             };
 
-            const responsePengajuan = await axios.get(`http://localhost:3000/admin/getoneaccpengajuan/${dataId}`, config)
+            const responsePengajuan = await axios.get(`${backendUrl}/admin/getoneaccpengajuan/${dataId}`, config)
             const allData = responsePengajuan.data
-            const responseBerkas = await axios.get(`http://localhost:3000/admin/allspecfile/${dataId}`, config)
+            const responseBerkas = await axios.get(`${backendUrl}/admin/allspecfile/${dataId}`, config)
             const allFileData = responseBerkas.data
 
             Swal.fire({
@@ -96,7 +98,7 @@ const ButtonPengajuanProses = ({ dataId }) => {
                 }
             };
 
-            const response = await axios.patch(`http://localhost:3000/admin/pengajuan/${dataId}`, data, config);
+            const response = await axios.patch(`${backendUrl}/admin/pengajuan/${dataId}`, data, config);
             console.log('Data posted successfully:', response.data);
 
             setApiSuccess(true);

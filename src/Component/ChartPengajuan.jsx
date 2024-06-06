@@ -9,6 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const ChartPengajuan = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const backendUrl = process.env.REACT_APP_ENDPOINT
 
   const fetchAllData = async () => {
     try {
@@ -20,7 +21,7 @@ const ChartPengajuan = () => {
           Authorization: `Bearer ${token}`
         }
       };
-      const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+      const response = await axios.get(`${backendUrl}/admin/getaccpengajuan`, config)
       setData(response.data);
 
       setIsLoading(false);

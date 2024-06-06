@@ -4,6 +4,8 @@ import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 const ButtonHapusAllBerkas = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const hapusBerkas = async () => {
@@ -28,11 +30,11 @@ const ButtonHapusAllBerkas = ({ onSuccess }) => {
                                 Authorization: `Bearer ${token}`
                             }
                         };
-                        await axios.delete(`http://localhost:3000/pengajuan/delete/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/pengajuan/delete/${onSuccess}`, config)
 
-                        await axios.delete(`http://localhost:3000/lokasi/deletepengajuan/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/lokasi/deletepengajuan/${onSuccess}`, config)
 
-                        await axios.delete(`http://localhost:3000/dokumen/alldelete/${onSuccess}`, config)
+                        await axios.delete(`${backendUrl}/dokumen/alldelete/${onSuccess}`, config)
 
                         setApiSuccess(true);
 

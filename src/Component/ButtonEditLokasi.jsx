@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 
 
 const ButtonEditLokasi = ({ onSuccess, onText }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const handleLengthChange = (event) => {
@@ -28,9 +30,9 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
             };
 
             // fetch lokasi data spesifik
-            const responseSpecified = await axios.get(`http://localhost:3000/lokasi/${onSuccess}`, config)
+            const responseSpecified = await axios.get(`${backendUrl}/lokasi/${onSuccess}`, config)
             const specifiedLokasiData = responseSpecified.data;
-            const responseAll = await axios.get('http://localhost:3000/pengajuan', config)
+            const responseAll = await axios.get(`${backendUrl}/pengajuan`, config)
             const allPengajuanData = responseAll.data;
 
 
@@ -322,7 +324,7 @@ const ButtonEditLokasi = ({ onSuccess, onText }) => {
                 }
             };
 
-            const response = await axios.put(`http://localhost:3000/lokasi/edit/${onSuccess}`, data, config)
+            const response = await axios.put(`${backendUrl}/lokasi/edit/${onSuccess}`, data, config)
             console.log('Data posted successfully:', response.data);
 
             setApiSuccess(true);

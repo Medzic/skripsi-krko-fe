@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 const ProfilTambahAdmin = () => {
 
     const handleSubmit = async (e) => {
+        const backendUrl = process.env.REACT_APP_ENDPOINT
+
         e.preventDefault();
         try {
             const token = document.cookie.replace(/(?:^|.*;\s*)token\s*=\s*([^;]*).*$|^.*$/, "$1");
@@ -26,7 +28,7 @@ const ProfilTambahAdmin = () => {
                 password: document.getElementById('passwordAdmin').value
             };
 
-            await axios.post('http://localhost:3000/admin/register', formData, config);
+            await axios.post(`${backendUrl}/admin/register`, formData, config);
             Swal.fire({
                 icon: 'success',
                 text: 'Data Behasil di input',

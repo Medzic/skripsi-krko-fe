@@ -10,6 +10,7 @@ import './TabelPengajuan.css'
 const TabelPengajuan = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const backendUrl = process.env.REACT_APP_ENDPOINT
 
     const fetchPengajuan = async () => {
         try {
@@ -22,7 +23,7 @@ const TabelPengajuan = () => {
                 }
             };
 
-            const response = await axios.get('http://localhost:3000/pengajuan', config)
+            const response = await axios.get(`${backendUrl}/pengajuan`, config)
             setData(response.data);
             setIsLoading(false);
         } catch (error) {

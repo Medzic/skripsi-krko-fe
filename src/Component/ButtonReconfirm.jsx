@@ -4,6 +4,8 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 
 const ButtonReconfirm = ({ onSuccess }) => {
+    const backendUrl = process.env.REACT_APP_ENDPOINT
+
     const [apiSuccess, setApiSuccess] = useState(false);
 
     const reConfirm = () => {
@@ -32,7 +34,7 @@ const ButtonReconfirm = ({ onSuccess }) => {
                         }
                     };
 
-                    const response = await axios.patch(`http://localhost:3000/pengajuan/reconfirm/${onSuccess}`, data, config);
+                    const response = await axios.patch(`${backendUrl}/pengajuan/reconfirm/${onSuccess}`, data, config);
                     console.log('Data posted successfully:', response.data);
 
                     setApiSuccess(true);

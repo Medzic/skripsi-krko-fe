@@ -7,6 +7,8 @@ import './TabelPengajuanAdmin.css'
 import { MailIcon, MapPin, PhoneIcon, User2Icon } from 'lucide-react';
 
 const TabelPengajuanProsesAdmin = () => {
+  const backendUrl = process.env.REACT_APP_ENDPOINT
+
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -20,7 +22,7 @@ const TabelPengajuanProsesAdmin = () => {
           Authorization: `Bearer ${token}`
         }
       };
-      const response = await axios.get('http://localhost:3000/admin/getaccpengajuan', config)
+      const response = await axios.get(`${backendUrl}/admin/getaccpengajuan`, config)
       setData(response.data);
 
       setIsLoading(false);

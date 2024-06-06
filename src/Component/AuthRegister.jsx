@@ -6,6 +6,7 @@ import { AtSign, BookUser, KeyRound, MapPin, Phone, User } from 'lucide-react';
 
 
 export const AuthRegister = ({ onLogin, onError }) => {
+  const backendUrl = process.env.REACT_APP_ENDPOINT
 
   const [email, setEmail] = useState('');
   const [nik, setNik] = useState('');
@@ -17,7 +18,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/register', {
+      await axios.post(`${backendUrl}/register`, {
         nama: username,
         nik: nik,
         email: email,
