@@ -1,5 +1,8 @@
 import React from 'react'
 import './Footer.css'
+import mapImage from '../Asset/map.png'
+import mailImage from '../Asset/gmail.png'
+import csImage from '../Asset/customer-service.png'
 
 const Footer = () => {
     return (
@@ -7,7 +10,7 @@ const Footer = () => {
             <div className='footer-wrap'>
                 <div className='footer-item'>
                     <div className='footer-icon'>
-                        <img src="http://dpupr.tegalkota.go.id/wp-content/uploads/d4858fd1d4664a86bcf06733e56608d7.png" alt="" />
+                        <img src={mapImage} alt="" style={{ width: '50px', height: 'auto' }} />
 
                     </div>
                     <div>
@@ -16,7 +19,7 @@ const Footer = () => {
                 </div>
                 <div className='footer-item'>
                     <div className='footer-icon'>
-                        <img src="http://dpupr.tegalkota.go.id/wp-content/uploads/email-gmail-png.png" alt="" />
+                        <img src={mailImage} alt="" style={{ width: '50px', height: 'auto' }} />
                     </div>
                     <div>
                         <h5>dpukotategal@gmail.com</h5>
@@ -24,7 +27,7 @@ const Footer = () => {
                 </div>
                 <div className='footer-item'>
                     <div className='footer-icon'>
-                        <img src="http://dpupr.tegalkota.go.id/wp-content/uploads/support.png" alt="" />
+                        <img src={csImage} alt="" style={{ width: '50px', height: 'auto' }} />
                     </div>
                     <div>
                         <h5>(0283) 356353</h5>

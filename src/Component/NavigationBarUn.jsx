@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Navbar, Nav, Offcanvas, Container } from 'react-bootstrap'
 import './NavigationBar.css';
 import { NavLink } from 'react-router-dom';
+import logoImage from '../Asset/cropped-logo-kota-tegal.png'
 
 const NavigationBarUn = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false)
@@ -16,7 +17,7 @@ const NavigationBarUn = () => {
             {['sm'].map((expand) => (
                 <Navbar key={expand} expand={expand} className='Navigation sticky-top' > 
                     <Container fluid >
-                        <Navbar.Brand href="/" ><img src="https://dpupr.tegalkota.go.id/wp-content/uploads/2021/11/cropped-logo-kota-tegal.png" alt="Dinas Pekerjaan Umum dan Penataan Ruang Kota Tegal"/></Navbar.Brand>
+                        <Navbar.Brand href="/" ><img src={logoImage} alt="Dinas Pekerjaan Umum dan Penataan Ruang Kota Tegal"/></Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={() => toggleOffcanvas(expand)} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
