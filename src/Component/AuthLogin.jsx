@@ -3,6 +3,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import './Auth.css'
 import { BookUser, KeyRound } from 'lucide-react'
+import Swal from 'sweetalert2'
 
 
 export const AuthLogin = ({ onLogin, onError }) => {
@@ -13,6 +14,13 @@ export const AuthLogin = ({ onLogin, onError }) => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        Swal.fire({
+            icon: 'info',
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showCancelButton: false,
+            showConfirmButton: false
+        });
         try {
             const response = await axios.post(`${backendUrl}/login`, {
                 nik: nik,
@@ -24,6 +32,7 @@ export const AuthLogin = ({ onLogin, onError }) => {
                 console.error('no token received')
             }
             Cookies.set('token', data.token, { expires: 1 / 24 })
+            
 
             onLogin();
         } catch (error) {

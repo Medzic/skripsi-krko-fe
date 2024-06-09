@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 import './Auth.css'
 import { AtSign, User } from 'lucide-react';
 
+
 const AuthAdmin = () => {
     const backendUrl = process.env.REACT_APP_ENDPOINT
     const [nama, setNama] = useState('');
@@ -14,6 +15,13 @@ const AuthAdmin = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        Swal.fire({
+            icon: 'info',
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showCancelButton: false,
+            showConfirmButton: false
+          });
         try {
             const response = await axios.post(`${backendUrl}/admin/login`, {
                 nama: nama,
@@ -26,7 +34,7 @@ const AuthAdmin = () => {
                 console.error('no token received')
             }
             Cookies.set('token', data.token, { expires: 1 / 24 });
-            Cookies.set('role', data.role, { expires: 1 / 24 });
+            Cookies.set('role', data.role, { expires: 1 / 24 });           
 
 
             Swal.fire({

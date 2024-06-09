@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './Auth.css'
 import { AtSign, BookUser, KeyRound, MapPin, Phone, User } from 'lucide-react';
+import Swal from 'sweetalert2'
 
 
 
@@ -17,6 +18,14 @@ export const AuthRegister = ({ onLogin, onError }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    Swal.fire({
+      icon: 'info',
+      title: 'Loading...',
+      allowOutsideClick: false,
+      showCancelButton: false,
+      showConfirmButton: false
+    });
+    
     try {
       await axios.post(`${backendUrl}/register`, {
         nama: username,
@@ -26,6 +35,8 @@ export const AuthRegister = ({ onLogin, onError }) => {
         alamat: alamat,
         password: password
       });
+
+      
 
       onLogin();
     } catch (error) {
@@ -73,7 +84,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={telp}
           onChange={(e) => setTelp(e.target.value)}
         />
-        <MapPin/>
+        <MapPin />
         <input
           type='text'
           id='alamat'
@@ -82,7 +93,7 @@ export const AuthRegister = ({ onLogin, onError }) => {
           value={alamat}
           onChange={(e) => setAlamat(e.target.value)}
         />
-        <KeyRound/>
+        <KeyRound />
         <input
           type="password"
           id="password"
