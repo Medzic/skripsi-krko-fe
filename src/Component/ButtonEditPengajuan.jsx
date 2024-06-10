@@ -217,6 +217,14 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
             kecamatan,
             kota
         };
+        
+        Swal.fire({
+            icon: 'info',
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showCancelButton: false,
+            showConfirmButton: false
+        });
 
         try {
             // ambil token dari cookie

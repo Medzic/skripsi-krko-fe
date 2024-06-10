@@ -293,6 +293,13 @@ const ButtonTambahLokasi = () => {
     };
 
     const handlePostData = async (formData) => {
+        Swal.fire({
+            icon: 'info',
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showCancelButton: false,
+            showConfirmButton: false
+        });
         const [
             pengajuanId,
             loktanah,

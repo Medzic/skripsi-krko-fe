@@ -21,6 +21,14 @@ const ProfilPasswordEdit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        Swal.fire({
+            icon: 'info',
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showCancelButton: false,
+            showConfirmButton: false
+        });
+        
         try {
             const token = document.cookie.replace(/(?:^|.*;\s*)token\s*=\s*([^;]*).*$|^.*$/, "$1");
             const config = {
