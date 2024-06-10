@@ -95,7 +95,7 @@ const ButtonLihatPengajuanDetail = ({onSuccess}) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Alamat Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Alamat Pemohon</strong></th>
                         <td class='td-style'>: ${pengajuanData.alamat ?? ''}</td>
 
                     </tr>

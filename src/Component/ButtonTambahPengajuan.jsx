@@ -67,7 +67,7 @@ const ButtonTambahPengajuan = () => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 100%;' ><strong>Alamat Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 100%;' ><strong>Alamat Pemohon</strong></th>
                         <td>: <input id='alamat' style='width: 90%; border: none; border-bottom: 2px solid;' type='text'/></td>
 
                     </tr>

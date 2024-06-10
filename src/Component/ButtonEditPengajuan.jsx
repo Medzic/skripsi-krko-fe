@@ -112,7 +112,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Alamat Pengaju</strong></th>
+                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Alamat Pemohon</strong></th>
                         <td class='td-style'>: <input id='alamat' style='width: 90%; border: none; border-bottom: 2px solid;' type='text' value='${pengajuanData.alamat ?? ''}' /></td>
 
                     </tr>
@@ -217,7 +217,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
             kecamatan,
             kota
         };
-        
+
         Swal.fire({
             icon: 'info',
             title: 'Loading...',
