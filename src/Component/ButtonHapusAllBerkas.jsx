@@ -37,11 +37,23 @@ const ButtonHapusAllBerkas = ({ onSuccess }) => {
                                 Authorization: `Bearer ${token}`
                             }
                         };
-                        await axios.delete(`${backendUrl}/pengajuan/delete/${onSuccess}`, config)
-
-                        await axios.delete(`${backendUrl}/lokasi/deletepengajuan/${onSuccess}`, config)
-
-                        await axios.delete(`${backendUrl}/dokumen/alldelete/${onSuccess}`, config)
+                        try {
+                            await axios.delete(`${backendUrl}/pengajuan/delete/${onSuccess}`, config);
+                        } catch (error) {
+                            console.log('Data Sudah Dihapus');
+                        }
+                    
+                        try {
+                            await axios.delete(`${backendUrl}/lokasi/deletepengajuan/${onSuccess}`, config);
+                        } catch (error) {
+                            console.log('Data Sudah Dihapus');
+                        }
+                    
+                        try {
+                            await axios.delete(`${backendUrl}/dokumen/alldelete/${onSuccess}`, config);
+                        } catch (error) {
+                            console.log('Data Sudah Dihapus');
+                        }
 
                         setApiSuccess(true);
 
