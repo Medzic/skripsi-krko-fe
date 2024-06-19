@@ -35,7 +35,7 @@ const CardP = () => {
 
         <button onClick={() => navigate('/Pengajuan-DiProses')} className='buttonP '>
             <h1>Di Proses</h1>
-            <h1>{data.filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0).length}</h1>
+            <h1>{data.filter(pengajuan => pengajuan.picked === false && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0).length}</h1>
         </button>
 
     )

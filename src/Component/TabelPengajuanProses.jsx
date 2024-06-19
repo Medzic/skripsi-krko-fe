@@ -36,10 +36,10 @@ const TabelPengajuanProses = () => {
         <>
             {isLoading ? (
                 <TabelPengajuanSkeleton />
-            ) : data.filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0).length > 0 ? (
+            ) : data.filter(pengajuan => pengajuan.picked === false && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0).length > 0 ? (
                 <>
                     {data
-                        .filter(pengajuan => pengajuan.noreg === null && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0)
+                        .filter(pengajuan => pengajuan.picked === false && pengajuan.notes === null && pengajuan.Lokasi !== null && pengajuan.Filestorages.length > 0)
                         .map((item, index) => (
                             <div key={index} className='card-user-container'>
                                 <div className="print-container">

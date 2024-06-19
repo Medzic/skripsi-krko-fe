@@ -43,10 +43,10 @@ const TabelPengajuanTerima = () => {
         <>
             {isLoading ? (
                 <TabelPengajuanSkeleton />
-            ) : data.filter(pengajuan => pengajuan.noreg && pengajuan.arsip === false).length > 0 ? (
+            ) : data.filter(pengajuan => pengajuan.picked === true && pengajuan.arsip === false).length > 0 ? (
                 <>
                     {data
-                        .filter(pengajuan => pengajuan.noreg && pengajuan.arsip === false)
+                        .filter(pengajuan => pengajuan.picked === true && pengajuan.arsip === false)
                         .map((item, index) => (
                             <div key={index} className='card-user-container'>
                                 <div className="print-container">
