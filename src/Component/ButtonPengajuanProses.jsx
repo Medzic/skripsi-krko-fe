@@ -178,11 +178,6 @@ const ButtonPengajuanProses = ({ dataId }) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pengaju</strong></th>
-                        <td class='td-style'>: ${pengajuanData.namep ?? ''}</td>
-
-                    </tr>
-                    <tr>
                         <th class='th-style' style='display: flex; width: 50%;' ><strong>Nama Pemohon 1</strong></th>
                         <td class='td-style'>: ${pengajuanData.namep1 ?? ''}</td>
 
@@ -190,6 +185,11 @@ const ButtonPengajuanProses = ({ dataId }) => {
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon 2</strong></th>
                         <td class='td-style'>: ${pengajuanData.namep2 ?? ''}</td>
+
+                    </tr>
+                    <tr>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Nama Pemohon > 2</strong></th>
+                        <td class='td-style'value ='${pengajuanData.namep3}' >: ${pengajuanData.namep3 ? 'Ya' : 'Tidak'}</td>
 
                     </tr>
                     <tr>

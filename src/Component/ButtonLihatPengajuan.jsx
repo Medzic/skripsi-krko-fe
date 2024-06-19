@@ -62,8 +62,8 @@ const ButtonLihatPengajuan = ({ onSuccess }) => {
 
                     </tr>
                     <tr>
-                        <th class='th-style' style='display: flex; width: 50%;'><strong>Pemohon > 3</strong></th>
-                        <td class='td-style'>: ${pengajuanData.namep3 ?? ''}</td>
+                        <th class='th-style' style='display: flex; width: 50%;'><strong>Pemohon > 2</strong></th>
+                        <td class='td-style'value ='${pengajuanData.namep3}' >: ${pengajuanData.namep3 ? 'Ya' : 'Tidak'}</td>
 
                     </tr>
                     <tr>
