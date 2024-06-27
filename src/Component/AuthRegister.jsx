@@ -18,6 +18,29 @@ export const AuthRegister = ({ onLogin, onError }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (nik.length !== 16) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Jumlah NIK harus 16 digit.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#FF0000',
+      });
+      return;
+    }
+
+    if(telp.length > 12){
+      Swal.fire({
+        title: 'Error!',
+        text: 'Jumlah No. telepon tidak boleh lebih dari 12 digit.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#FF0000',
+      });
+      return;
+    }
+
     Swal.fire({
       icon: 'info',
       title: 'Loading...',
@@ -35,9 +58,6 @@ export const AuthRegister = ({ onLogin, onError }) => {
         alamat: alamat,
         password: password
       });
-
-      
-
       onLogin();
     } catch (error) {
       onError(error);

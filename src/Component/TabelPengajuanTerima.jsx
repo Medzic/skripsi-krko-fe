@@ -6,6 +6,7 @@ import './TabelPengajuan.css'
 import { useNavigate } from 'react-router-dom';
 import ButtonArsipkan from './ButtonArsipkan';
 import NotFound from './NotFound';
+import Printed from './Printed';
 
 const TabelPengajuanTerima = () => {
     const backendUrl = process.env.REACT_APP_ENDPOINT
@@ -69,7 +70,7 @@ const TabelPengajuanTerima = () => {
                                         </div>
 
                                         <div className='card-btn'>
-                                            <Button onClick={() => navigate(`/Print/${item.id}`)}>Cetak</Button>
+                                            <Printed onSuccess={item.id}>Cetak</Printed>
                                             <ButtonArsipkan onSuccess={item.id}/>
 
                                         </div>

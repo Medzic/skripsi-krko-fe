@@ -31,20 +31,70 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                 showCancelButton: true,
                 cancelButtonText: 'Batal',
                 preConfirm: () => {
+                    const tanggal = document.getElementById('tanggal').value
+                    const namep1 = document.getElementById('namep1').value
+                    const namep2 = document.getElementById('namep2').value
+                    const namep3 = document.getElementById('namep3').value
+                    const nikp1 = document.getElementById('nikp1').value
+                    const nikp2 = document.getElementById('nikp2').value
+                    const telp = document.getElementById('telp').value
+                    const alamat = document.getElementById('alamat').value
+                    const rt = document.getElementById('rt').value
+                    const rw = document.getElementById('rw').value
+                    const kelurahan = document.getElementById('kelurahan').value
+                    const kecamatan = document.getElementById('kecamatan').value
+                    const kota = document.getElementById('kota').value
+
+                    if (!namep1) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (nikp1.length !== 16) {
+                        Swal.showValidationMessage('Jumlah NIK harus 16 digit.');
+                        return false;
+                    }
+                    if (!telp) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!alamat) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!rt) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!rw) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!kelurahan) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!kecamatan) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
+                    if (!kota) {
+                        Swal.showValidationMessage('Data tidak boleh Kosong');
+                        return false;
+                    }
                     return [
-                        document.getElementById('tanggal').value,
-                        document.getElementById('namep1').value,
-                        document.getElementById('namep2').value,
-                        document.getElementById('namep3').value,
-                        document.getElementById('nikp1').value,
-                        document.getElementById('nikp2').value,
-                        document.getElementById('telp').value,
-                        document.getElementById('alamat').value,
-                        document.getElementById('rt').value,
-                        document.getElementById('rw').value,
-                        document.getElementById('kelurahan').value,
-                        document.getElementById('kecamatan').value,
-                        document.getElementById('kota').value,
+                        tanggal,
+                        namep1,
+                        namep2,
+                        namep3,
+                        nikp1,
+                        nikp2,
+                        telp,
+                        alamat,
+                        rt,
+                        rw,
+                        kelurahan,
+                        kecamatan,
+                        kota,
                     ]
                 }
             }).then((result) => {
@@ -89,9 +139,9 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
                     <tr>
                         <th class='th-style' style='display: flex; width: 50%;'><strong>Pemohon > 3</strong></th>
                         <td class='td-style'>: <select id='namep3' style='width: 90%; border: none; border-bottom: 2px solid;'>
-                        <option value='${pengajuanData.namep3}'>${pengajuanData.namep3 ? 'Ya' : 'Tidak'}</option>
+                        <option value='${pengajuanData.namep3}'>${pengajuanData.namep3 !== " " ? 'Ya' : 'Tidak'}</option>
                         <option value='cs'>Ya</option>
-                        <option value=''>Tidak</option>
+                        <option value=' '>Tidak</option>
                         </select>
                         </td>
 
@@ -181,7 +231,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
 
                     </tr>
                 </table>
-        `; 
+        `;
         return formattedData;
     };
 
@@ -238,7 +288,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
 
             const response = await axios.put(`${backendUrl}/pengajuan/edit/${onSuccess}`, data, config)
             console.log('Data posted successfully:', response.data);
-           
+
             setApiSuccess(true);
 
             Swal.fire({
@@ -266,7 +316,7 @@ const ButtonEditPengajuan = ({ onSuccess, onText }) => {
 
     return (
         <Button variant='warning' onClick={fetchPengajuan}>
-            {onText ? onText:Text}
+            {onText ? onText : Text}
         </Button>
     )
 }
