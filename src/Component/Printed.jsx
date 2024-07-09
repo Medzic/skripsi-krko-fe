@@ -54,8 +54,6 @@ const Printed = ({ onSuccess }) => {
         //tambah konten disini
         doc.text(title, xCoordinate, 20);
 
-        doc.text("Dinas Pekerjaan Umum dan Penataan Ruang", leftX, 40);
-        doc.text("di Tegal", leftX, 50);
         doc.text("Dengan Hormat,", leftX, 70);
         doc.text("Memohon untuk dibuatkan Surat Keterangan Rencana Kota,", leftX + 10, 80);
         doc.text("berdasarkan data dibawah ini:", leftX, 88);

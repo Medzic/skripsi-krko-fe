@@ -20,6 +20,7 @@ import ArsipPage from './Pages/ArsipPage';
 import AdminProfilPage from './Pages/AdminProfilPage';
 import ProfilPage from './Pages/ProfilPage';
 import PengajuanAmbilAdminPage from './Pages/PengajuanAmbilAdminPage';
+import MapPage from './Pages/MapPage';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
 
             <Route path='/Pengajuan' element={<PengajuanPage />} />
             <Route path='/Lokasi' element={<LokasiPage />} />
+            <Route path='/halaman-peta' element={<MapPage />} />
             <Route path='/Berkas' element={<BerkasPage />} />
             
             <Route path='/Arsip' element={<ArsipPage />} />

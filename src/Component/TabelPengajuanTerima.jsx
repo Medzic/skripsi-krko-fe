@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button } from 'react-bootstrap';
 import TabelPengajuanSkeleton from './Skeleton/TabelPengajuanSkeleton';
 import './TabelPengajuan.css'
-import { useNavigate } from 'react-router-dom';
 import ButtonArsipkan from './ButtonArsipkan';
 import NotFound from './NotFound';
 import Printed from './Printed';
@@ -13,9 +11,6 @@ const TabelPengajuanTerima = () => {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
-    const navigate = useNavigate()
-
 
     const fetchPengajuan = async () => {
         try {

@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 .env
+Component/Peta.jsx
+Component/ButtonPeta.jsx
+Pages/MapPage.jsx
+Pages/LokasiPage.jsx
 
 # testing
 /coverage
