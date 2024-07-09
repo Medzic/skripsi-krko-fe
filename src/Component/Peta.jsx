@@ -3,9 +3,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents, useMap } from 'react-lea
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import axios from 'axios';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerIcon from '../Asset/map.png';
 
 const KOTA_TEGAL_COORDINATES = [-6.86997, 109.1403];
 const KOTA_TEGAL_BOUNDS = [
@@ -17,8 +15,6 @@ const KOTA_TEGAL_BOUNDS = [
 // custom
 const customIcon = new L.Icon({
   iconUrl: markerIcon,
-  iconRetinaUrl: markerIcon2x,
-  shadowUrl: markerShadow,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
