@@ -14,7 +14,7 @@ const KOTA_TEGAL_BOUNDS = [
 ];
 
 
-// Create custom icon
+// custom
 const customIcon = new L.Icon({
   iconUrl: markerIcon,
   iconRetinaUrl: markerIcon2x,
